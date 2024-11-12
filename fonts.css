@@ -1,0 +1,18 @@
+@font-face {
+    font-family:"monstserrat";
+    src: url("fontsmontserrat/Montserrat-Regular.ttf") format("truetype");
+    font-weight: 400;
+}
+
+
+@font-face {
+    font-family:"monstserrat";
+    src: url("fontsmontserrat/Montserrat-Bold.ttf") format("truetype");
+    font-weight: 900;
+}
+
+@font-face {
+    font-family:"dancing";
+    src: url("fontdancing/DancingScript-Bold.ttf") format("truetype");
+    font-weight: 900;
+}

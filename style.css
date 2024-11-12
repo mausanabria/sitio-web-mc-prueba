@@ -1,0 +1,305 @@
+/* GENERAL INICIO */
+
+/* Estilos generales */
+body {
+  margin: auto;
+  padding: auto;
+  box-sizing: border-box;
+  background-color: black;
+  font-family: montserrat;
+}
+
+/* GENERAL FIN */
+
+/* PARTE 1 INICIO */
+
+/* Contenedor principal que ocupa el 80% del ancho de la página */
+.contenido_seccion_menuyservicios {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  color: white;
+  width: 100%;
+}
+
+header .logo img {
+  width: 250px;
+  height: auto;
+  padding-top: 30px;
+}
+
+header .navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 100px;
+}
+
+header .navbar ul li {
+  display: inline;
+}
+
+header .navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-family: montserrat;
+  font-size: 30px;
+  transition: color 0.3s ease-in-out; /* Transición suave para el color */
+}
+
+header .navbar ul li a:hover {
+  color:  #85e8ec ; /* Nuevo color al pasar el cursor */
+  text-decoration: underline;
+}
+
+/* Contenedor del carrusel */
+.servicios_carrusel_seccion_completa {
+  width: 80%;
+  max-width: 800px;
+  margin: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Imagen destacada */
+.imagen_principal_carrusel {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.imagen_principal_carrusel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+
+
+/* Carrusel de miniaturas */
+.servicios-carrusel {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  overflow-x: auto;
+}
+
+.servicios {
+  width: 100px;
+  height: 70px;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.servicios img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.servicios:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+}
+
+
+/* PARTE 1 FIN */
+
+section.imagensobretexto {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 100px;
+  display: flex;
+}
+
+section.imagensobretexto {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+
+  font-family: Arial, sans-serif;
+}
+
+.gallery-container {
+  display: flex;
+  gap: 50px; /* Espacio entre cada bloque */
+  padding: 80px;
+}
+
+.gallery-item {
+  width: 300px; /* Ancho de cada bloque */
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra alrededor de cada bloque */
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  display: block;
+  transition: transform 0.3s ease; /* Efecto de zoom en la imagen */
+}
+
+.image-container:hover img {
+  transform: scale(1.1); /* Agranda la imagen al pasar el cursor */
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+  color: #fff; /* Color del texto */
+  padding: 10px;
+  text-align: center;
+  opacity: 0; /* Hace invisible el texto inicialmente */
+  transition: opacity 0.3s ease; /* Transición de aparición del texto */
+}
+
+.image-container:hover .overlay {
+  opacity: 1; /* Muestra el texto al pasar el cursor */
+}
+.textoservicio{
+  color: #fff; /* Color del texto */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Sombra oscura */
+  outline: none; /* Elimina cualquier contorno adicional */
+  border: none; /* Asegura que no haya borde */
+  background: transparent; /* Sin fondo */
+  font-size: 30px;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  font-weight: 700; /* Más grueso */
+}
+
+/* PARTE 2 FIN */
+
+
+/* Contenedor del carrousel */
+.carousel-container {
+  width: 100%;
+  margin: 20px 0;
+  overflow: hidden;
+  position: relative;
+  padding: 50px 0;
+}
+
+/* Contenedor de las imágenes */
+.carousel-images {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  transform-origin: center center;
+}
+
+/* Cada imagen */
+.carousel-images img {
+  width: 300px;
+  height: auto;
+  margin-right: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Efecto de agrandar la imagen al pasar el cursor */
+.carousel-images img:hover {
+  transform: scale(1.2);
+}
+
+/* Estilos para los botones de navegación */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+}
+.prev {
+  left: 10px;
+}
+.next {
+  right: 10px;
+}
+
+.subtitulo {
+  font-family: dancing;
+  font-size: 50px;
+  font-weight:bold;
+  color: black; /* Color del texto */
+  background-color: white; /* Fondo blanco */
+  padding: 10px; /* Espaciado alrededor del texto */
+  border-radius: 60px; /* Bordes redondeados */
+  text-align: center; /* Centrar el texto */
+  font-weight: bold; /* Negrita */
+  margin: 40px auto; /* Margen superior e inferior, centrado en la página */
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+/* Contenedor que engloba las 3 secciones */
+.secciones-container {
+  display: flex;
+  justify-content: space-between; /* Distribuye el espacio entre las secciones */
+  gap: 10px; /* Espacio entre las secciones */
+  margin-top: 30px;
+  padding: 10px;
+}
+
+/* Estilos para cada sección */
+.seccion {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 32px;
+  color: #333333; /* Color de texto oscuro para mayor contraste */
+  background-color: #ffffff; /* Fondo gris claro */
+  width: 25%; /* Ancho de cada sección */
+  padding: 25px;
+  text-align: center;
+  border-radius: 12px; /* Bordes redondeados */
+  border: 1px solid #ddd; /* Borde fino y delicado */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Transiciones */
+}
+
+/* Efecto al pasar el cursor sobre las secciones */
+.seccion:hover {
+  transform: translateY(-5px) scale(1.1); /* Levanta y agranda ligeramente */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra más sutil */
+  border-color: #ffffff; /* Cambia el color del borde */
+  background-color: #ffffff; /* Ligero cambio de fondo */
+}
+
+
+p.quienes-somos {
+  color:gray;
+  font-family: montserrat;
+  font-size: 30px;
+  font-weight:bold;
+  width: 60%; /* Limita el ancho del párrafo al 70% del ancho total de la página */
+  margin: 0 auto; /* Centra el párrafo dentro de su contenedor */
+  line-height: 1.6; /* Ajusta la altura de línea para mejorar la legibilidad */
+  text-align: center;
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  height: 30vh; /* Altura del 100% de la ventana para centrar verticalmente */
+  padding-bottom: 70px;
+}
