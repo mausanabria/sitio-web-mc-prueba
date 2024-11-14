@@ -6,9 +6,35 @@ body {
   padding: 0;
   box-sizing: border-box;
   background-color: black;
+  margin-top: 120px;
   font-family: montserrat;
   
 }
+html {
+  scroll-padding-top: 150px; /* Ajusta este valor al alto de tu barra de navegación */
+}
+
+.encabezado_pricipal{
+  font-family: sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: rgba(174, 172, 177, 0.485);
+  text-align: center;
+  padding-top: 20px;
+}
+
+.encabezado_pricipal{
+    animation: expandirContraer 3s infinite ease-in-out; /* 3 segundos, se repite indefinidamente, con transición suave */
+  }
+  
+  @keyframes expandirContraer {
+    0%, 100% {
+      transform: scale(1); /* Tamaño normal */
+    }
+    50% {
+      transform: scale(1.1); /* Expansión al 120% */
+    }
+  }
 
 /* GENERAL FIN */
 
@@ -49,6 +75,7 @@ header .logo img {
   width: 100%; /* La barra de navegación ocupa todo el ancho */
   max-width: 100%; /* Asegura que no se desborde */
   position: fixed; /* Fija la barra de navegación */
+
   top: 0; /* Alinea la barra en la parte superior de la ventana */
   background-color: black; /* Fondo negro */
   color: white; /* Texto en blanco */
@@ -292,8 +319,8 @@ section.imagensobretexto {
   text-align: center; /* Centrar el texto */
   font-weight: bold; /* Negrita */
   margin: 40px auto; /* Margen superior e inferior, centrado en la página */
-  margin-top: 150px;
-  margin-bottom: 150px;
+  margin-top: 100px;
+  margin-bottom: 100px;
   width: 80%; /* Ocupa el 80% del ancho de la página */
 }
 
@@ -331,6 +358,8 @@ p.experiencia {
   padding-bottom: 60px;
   border-radius: 30%;
 }
+
+
 
 /* Contenedor general */
 .secciones-container {

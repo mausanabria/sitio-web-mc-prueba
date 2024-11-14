@@ -8,8 +8,15 @@
 @font-face {
     font-family:"monstserrat";
     src: url("fontsmontserrat/Montserrat-Bold.ttf") format("truetype");
+    font-weight: 600;
+}
+
+@font-face {
+    font-family:"monstserrat";
+    src: url("fontsmontserrat/Montserrat-ExtraBold.ttf") format("truetype");
     font-weight: 900;
 }
+
 
 @font-face {
     font-family:"dancing";
