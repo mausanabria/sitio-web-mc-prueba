@@ -10,8 +10,26 @@
 
 <body>
 
+    <div class="logomobile">
+        <img src="martial.jpeg" alt="Logo">
+      </div>
 <!-- PARTE 1-->
     <header>
+
+        <div class="logo">
+            <img src="martial.jpeg" alt="Logo">
+          </div>
+          <button class="menu-toggle" aria-label="Abrir menú">&#9776;</button> <!-- Ícono de menú -->
+          <nav class="navbar">
+            <ul>
+              <li><a href="#Inicio">Inicio</a></li>
+              <li><a href="#Torneos">Torneos</a></li>
+              <li><a href="#Proximos_eventos">Proximos Eventos</a></li>
+              <li><a href="#Nosotros">Nosotros</a></li>
+              <li><a href="#Servicios">Servicios</a></li>
+              <li><a href="#Contacto">Contacto</a></li>
+            </ul>
+          </nav>
         <section id="Inicio"></section>
         <div class="logo">
             <img src="martial.jpeg" alt="Logo"> <!-- Aquí puedes cambiar por tu imagen -->
@@ -143,7 +161,7 @@
                     <div class="seccion-back">
                         <p>Brindamos a los organizadores una herramienta dinámica, y eficiente, orientada a la administración, gestión y organización de los eventos y de la logística interna y detrás de escena de dichos eventos. Es por esto que nuestro especialista dentro del staff es<br><b>Lic. Administración de empresas.</b></p>
                     </div>
-                </div>
+                </div>  
             </div>
             <div class="seccion">
                 <div class="tarjeta">
@@ -170,6 +188,17 @@
 
 
 <!-- PARTE 4-->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navbar = document.querySelector(".navbar");
+  
+      menuToggle.addEventListener("click", () => {
+        navbar.classList.toggle("active"); // Activa o desactiva la clase 'active'
+      });
+    });
+  </script>
+
 
 </body>
 </html>

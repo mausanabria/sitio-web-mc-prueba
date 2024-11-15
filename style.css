@@ -40,11 +40,7 @@ html {
 
 /* PARTE 1 INICIO */
 
-/* Contenedor principal que ocupa el 80% del ancho de la página */
-.contenido_seccion_menuyservicios {
-  width: 100%;
-  margin: 0 auto;
-}
+
 
 /* Header */
 header {
@@ -65,8 +61,7 @@ header .logo {
 
 header .logo img {
   width: 300px;
-  height: auto;
-  padding-left: 200px;
+  padding-left: 100px;
 
 }
 /*--------------barra nueva-----------------*/
@@ -75,7 +70,6 @@ header .logo img {
   width: 100%; /* La barra de navegación ocupa todo el ancho */
   max-width: 100%; /* Asegura que no se desborde */
   position: fixed; /* Fija la barra de navegación */
-
   top: 0; /* Alinea la barra en la parte superior de la ventana */
   background-color: black; /* Fondo negro */
   color: white; /* Texto en blanco */
@@ -92,10 +86,10 @@ header .logo img {
 header .navbar ul {
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 18px;
   justify-content:end; /* Alinea los enlaces al centro*/
   align-items: center;  /* Centra verticalmente todos los elementos dentro del header */
-  padding-right: 200px;
+  padding-right: 230px;
 }
 
 header .navbar ul li {
@@ -274,6 +268,7 @@ section.imagensobretexto {
   display: flex;
   transition: transform 0.5s ease-in-out;
   transform-origin: center center;
+  animation: slide 1s infinite linear;
 }
 
 /* Cada imagen */
@@ -379,7 +374,6 @@ p.experiencia {
 .tarjeta {
   width: 100%;
   height: 100%;
-  position: relative;
   transform-style: preserve-3d;
   transition: transform 0.6s;
 }
@@ -420,4 +414,261 @@ p.experiencia {
   font-size: 25px;
   transform: rotateY(180deg); /* Aplica la rotación al reverso para el efecto de flip */
   font-family: sans-serif;
+}
+
+
+
+
+
+
+
+
+/* Estilos para el botón del menú */
+.menu-toggle {
+  display: none; /* Ocultar por defecto */
+  background-color: transparent;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 1100;
+}
+
+/* Ocultar barra de navegación en móviles */
+.navbar {
+  display: none; /* Oculta el menú inicialmente */
+  flex-direction: column; /* Alinea los elementos verticalmente */
+  background-color: black;
+  position: fixed; /* Hace que el menú sea desplegable */
+
+  right: 0;
+  width: 100%; /* Ocupa todo el ancho en móviles */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.navbar ul {
+  flex-direction: column; /* Apila los enlaces */
+  align-items: flex-start; /* Alinea los enlaces a la izquierda */
+  padding: 20px;
+  gap: 10px;
+}
+
+
+/* Mostrar menú cuando esté activo */
+.navbar.active {
+  display: flex; /* Muestra el menú desplegable */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Estilos responsivos */
+@media (max-width: 1199px) { /* Para pantallas chicas */
+  .logo img {
+    width: 100px; /* Reduce el tamaño del logo */
+    left: 50px; /* Ajusta la posición del logo */
+  }
+
+  .navbar {
+    display: none; /* Oculta el menú en pantallas más pequeñas */
+  }
+
+  .menu-toggle {
+    display: block; /* Muestra el botón del menú */
+  }
+
+  .navbar.active {
+    display: flex; /* Muestra el menú desplegable al activar la clase */
+  }
+
+  .navbar ul {
+    align-items: flex-start; /* Alinea los enlaces a la izquierda */
+  }
+
+  .servicios_carrusel_seccion_completa {
+    width: 90%; /* Ajusta el ancho del carrusel */
+  }
+.carousel-container{
+  padding-left: 10px;
+}
+
+  .subtitulo {
+    font-size: 30px; /* Reduce el tamaño del texto */
+    width: 90%; /* Ajusta el ancho del subtítulo *  
+  }
+
+  p.quienes-somos, p.experiencia {
+    font-size: 20px; /* Reduce el tamaño de los párrafos */
+    width: 80%; /* Ajusta el ancho del texto */
+    padding-bottom: 0dvh;
+  }
+}
+
+
+/* Pantallas de 1200px o más */
+@media (min-width: 1200px) {
+  .navbar {
+    width: 100%; /* La barra de navegación ocupa todo el ancho */
+    max-width: 100%; /* Asegura que no se desborde */
+    position: fixed; /* Fija la barra de navegación */
+    top: 0; /* Alinea la barra en la parte superior de la ventana */
+    background-color: black; /* Fondo negro */
+    color: white; /* Texto en blanco */
+    z-index: 1000; /* Asegura que la barra esté por encima de otros elementos */
+    padding-right: 100px;
+    box-sizing: border-box; /* Para incluir el padding dentro del ancho total */
+    display: flex;
+    justify-content: flex-end; /* Alinea los elementos dentro de la barra de navegación a la derecha */
+    padding: 18px 0; 
+  }
+
+  .navbar ul {
+    flex-direction: row; /* Asegura que los enlaces estén en fila */
+    gap: 20px; /* Espacio entre enlaces */
+    padding: 0; /* Elimina el padding adicional */
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    justify-content:end; /* Alinea los enlaces al centro*/
+    align-items: center;  /* Centra verticalmente todos los elementos dentro del header */
+    padding-right: 200px;
+  }
+  
+  .navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 20px;
+    transition: all 0.3s ease; /* Transición suave */
+    border-radius: 10px; /* Esquinas redondeadas */
+    padding: 8px 20px;
+  }
+
+  .navbar ul li a:hover {
+    background-color: white; /* Fondo blanco al pasar el cursor */
+    color: black; /* Texto negro al pasar el cursor */
+    border: 1px solid black; /* Borde negro */
+  }
+
+  .menu-toggle {
+    display: none; /* Oculta el botón del menú desplegable */
+  }
+
+  .logomobile{
+
+  display: none;
+  }
+}
+
+
+
+
+
+@media (max-width: 768px) { /* Para tablets y móviles */
+
+  header .logo {
+  display: none;
+  }
+
+  .logomobile img {
+    position: absolute;
+    width:200px;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    display: block;
+    top: 10px;
+    padding-left: 50px;
+
+  }
+
+  header .navbar ul {
+    flex-direction: column; /* Muestra los enlaces en columna */
+    gap: 10px; /* Reduce el espacio entre enlaces */
+    padding-right: 0;
+    align-items: flex-start; /* Alinea los enlaces a la izquierda */
+  }
+
+  .imagen_principal_carrusel {
+    height: 300px; /* Reduce la altura del carrusel */
+  }
+
+  .gallery-container {
+    display:block;
+  }
+
+.gallery-item{
+  margin-top: 20px;
+  width: 100%;
+}
+
+  .subtitulo {
+    font-size: 25px; /* Reduce el tamaño del subtítulo */
+    margin: 0 auto;
+  }
+
+  .encabezado_pricipal{
+    font-size: 18px;
+  }
+
+
+  p.quienes-somos, p.experiencia {
+    font-size: 18px; /* Reduce el tamaño del texto */
+    width: 90%; /* Ajusta el ancho */
+    margin-top: 80px;
+  }
+
+  .secciones-container {
+    flex-direction: column; /* Muestra las tarjetas en columna */
+    gap: 20px; /* Espacio reducido entre tarjetas */
+    width: 100%; /* Ajusta el ancho de las tarjetas */
+    padding: 0 10px; /* Añade un pequeño margen interior */
+    box-sizing: border-box; /* Asegura que los márgenes estén dentro del ancho */
+  }
+
+    /* Ajustar el tamaño de las tarjetas */
+    .seccion {
+      width: 100%; /* La tarjeta ocupa todo el ancho disponible */
+      height: 300px; /* Ajusta automáticamente la altura */
+    }
+    .tarjeta {
+      width: 100%; /* Asegura que el contenido interno no desborde */
+    }
+  .seccion-front,.seccion-back{
+    font-size: 18px;
+  }
+
+}
+
+@media (max-width: 480px) { /* Para móviles pequeños */
+  .logo img {
+    width: 120px; /* Tamaño del logo más pequeño */
+  }
+
+  .navbar ul li a {
+    font-size: 16px; /* Reduce el tamaño del texto de los enlaces */
+  }
+
+  .imagen_principal_carrusel {
+    height: 200px; /* Reduce aún más la altura del carrusel */
+  }
+
+  .subtitulo {
+    font-size: 20px; /* Ajusta el tamaño del subtítulo */
+  }
+
+  p.quienes-somos, p.experiencia {
+    font-size: 16px; /* Reduce el tamaño del texto */
+  }
 }
