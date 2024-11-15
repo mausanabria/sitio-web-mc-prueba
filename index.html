@@ -7,16 +7,12 @@
     <link rel="stylesheet" href="style.css"> <!-- Enlace al archivo CSS -->
     <link rel="stylesheet" href="fonts.css"> <!-- Enlace al archivo font -->
 </head>
+
 <body>
 
-
-<section id="Inicio"></section>
-<!-- PARTE 1 INICIO-->
-<!-- Contenedor principal que ocupa el 80% del ancho de la página -->
-<div class="contenido_seccion_menuyservicios">
-    
-    <!-- Header con imagen a la izquierda y secciones a la derecha -->
+<!-- PARTE 1-->
     <header>
+        <section id="Inicio"></section>
         <div class="logo">
             <img src="martial.jpeg" alt="Logo"> <!-- Aquí puedes cambiar por tu imagen -->
         </div>
@@ -31,17 +27,13 @@
             </ul>
         </nav>
     </header>
-
-
-    <!-- Sección del carrusel -->
-    
+<!-- Sección del carrusel en miniatura -->
     <section class="servicios_carrusel_seccion_completa">
-                <!-- Imagen grande destacada -->
-        <div class="imagen_principal_carrusel">
-            <img id="featured-image" src="MC2.jpeg" alt="Imagen destacada">
-        </div>
-        <!-- Carrusel de miniaturas -->
-        <div class="servicios-carrusel">
+            <div class="imagen_principal_carrusel">
+                <img id="featured-image" src="MC2.jpeg" alt="Imagen destacada">
+            </div>
+            <!-- Carrusel de miniaturas -->
+            <div class="servicios-carrusel">
             <div class="servicios" onclick="changeImage('MC2.jpeg')">
                 <img src="MC2.jpeg" alt="Miniatura 1">
             </div>
@@ -52,146 +44,132 @@
                 <img src="MC4.jpeg" alt="Miniatura 3">
             </div>
         <script>
-            // Función para cambiar la imagen destacada al hacer clic en una miniatura
             function changeImage(imageSrc) {
             document.getElementById('featured-image').src = imageSrc;
             }
         </script>
         </div> 
+        <h2 class="encabezado_pricipal">WE CREATE THE FUTURE OF PROFESSIONAL EVENT</h2>
     </section>
-    <h2 class="encabezado_pricipal">WE CREATE THE FUTURE OF PROFESSIONAL EVENT</h2>
-</div> 
-<!-- PARTE 1 FIN-->
-<section id="Servicios"> 
-<h2 class="subtitulo">Servicios</h2>
-</section>
-<section class="imagensobretexto">
-    
-    <div class="gallery-container">
-        <div class="gallery-item">
-            <div class="image-container">
-                <img src="MC3.jpeg" alt="Sistema de Puntuacion">
-                <div class="overlay">
-                <p class="textoservicio">Sistema de Puntuacion</p>
-                </div>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <div class="image-container">
-                <img src="Examen2.jpeg" alt="Gestion de Examenes">
-                <div class="overlay">
-                <p class="textoservicio">Gestion de Examenes</p>
-                </div>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <div class="image-container">
-            <img src="MC1.jpeg" alt="Organizacion de Torneos">
-                <div class="overlay">
-                <p class="textoservicio">Organizacion de Torneos</p>
-                </div>
-            </div>
-        </div>
-        <div class="gallery-item">
-            <div class="image-container">
-            <img src="CRED.jpeg" alt="Credenciales">
-                <div class="overlay">
-                <p class="textoservicio">Credenciales</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 
-<!-- PARTE 2 FIN-->
-    <div class="contenido_menu"> 
-        <section class="secciones" id="Torneos">  
+<!-- PARTE 2-->
+    <section id="Servicios"> 
+    <h2 class="subtitulo">Servicios</h2>
+        <div class="imagensobretexto">
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <div class="image-container">
+                        <img src="MC3.jpeg" alt="Sistema de Puntuacion">
+                        <div class="overlay">
+                            <p class="textoservicio">Sistema de Puntuacion</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-container">
+                        <img src="Examen2.jpeg" alt="Gestion de Examenes">
+                        <div class="overlay">
+                            <p class="textoservicio">Gestion de Examenes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-container">
+                        <img src="MC1.jpeg" alt="Organizacion de Torneos">
+                        <div class="overlay">
+                            <p class="textoservicio">Organizacion de Torneos</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="image-container">
+                        <img src="CRED.jpeg" alt="Credenciales">
+                        <div class="overlay">
+                            <p class="textoservicio">Credenciales</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="contenido_menu"> 
+            <div class="secciones" id="Torneos">  
             <h2 class="subtitulo">Torneos</h2>
-        
-        <div class="carousel-container">
-            <div class="carousel-images">
-                <!-- Agrega tus imágenes aquí -->
-                <img src="ITA 2024.jpeg" alt="Imagen 1">
-                <img src="Nacional 2024.jpeg" alt="Imagen 2">
-                <img src="Metropolitano 2024.jpeg" alt="Imagen 3">
-                <img src="ITA 2023.jpeg" alt="Imagen 4">
-                <img src="Nacional 2023.jpeg" alt="Imagen 5">
-                <img src="Metropolitano 2024.jpeg" alt="Imagen 6">
-            </div>
-
-            <!-- Botones para navegar -->
-            <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
-            <button class="next" onclick="moveSlide(1)">&#10095;</button>
-        </div>
-    
-
-    <script>
-        let currentIndex = 0;
-
-        function moveSlide(direction) {
+                <div class="carousel-container">
+                    <div class="carousel-images">
+                        <img src="ITA 2024.jpeg" alt="Imagen 1">
+                        <img src="Nacional 2024.jpeg" alt="Imagen 2">
+                        <img src="Metropolitano 2024.jpeg" alt="Imagen 3">
+                        <img src="ITA 2023.jpeg" alt="Imagen 4">
+                        <img src="Nacional 2023.jpeg" alt="Imagen 5">
+                        <img src="Nacional 2023gups.jpeg" alt="Imagen 6">
+                    </div>
+                <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+                <button class="next" onclick="moveSlide(1)">&#10095;</button>
+                </div>
+            <script>
+            let currentIndex = 0;
+            function moveSlide(direction) {
             const images = document.querySelectorAll('.carousel-images img');
             const totalImages = images.length;
             currentIndex += direction;
-
             if (currentIndex < 0) {
                 currentIndex = totalImages - 1;
             } else if (currentIndex >= totalImages) {
                 currentIndex = 0;
             }
-
             const newTransformValue = -(currentIndex * (images[0].width + 20)); // 20 es el margen entre las imágenes
             document.querySelector('.carousel-images').style.transform = `translateX(${newTransformValue}px)`;
-        }
-    </script>
+            }
+            </script>
+            </div>
+        </div>
     </section>
-    </div>
-<!-- PARTE 2 FIN-->
+
 
 <!-- PARTE 3 INICIO-->
-<section id="Nosotros">  
-    <h2 class="subtitulo">Quienes Somos</h2>
-</section>
+    <section id="Nosotros">  
+        <h2 class="subtitulo">Quienes Somos</h2>
         <p class="quienes-somos">
         Martial Challenge es una herramienta de software orientada a brindar apoyo en eventos deportivos masivos, como torneos, exámenes, cursos, etc. Brindando al usuario una experiencia agradable, dinámica e intuitiva. El principal beneficio es la automatización del proceso del evento y la eficiencia de los tiempos, tanto para los organizadores, colaboradores, competidores, alumnos, acompañantes y público en general.
         </p>
         <p class="experiencia">Contamos con una amplia experiencia en Gestion de Torneos</p>
-
-<div class="secciones-container">
-    <div class="seccion">
-        <div class="tarjeta">
-        <div class="seccion-front">
-            <h3>Administracion<br>Gestion<br>Organizacion</h3>
-        </div>
-            <div class="seccion-back">
-            <p>Brindamos a los organizadores una herramienta dinámica, y eficiente, orientada a la administración, gestión y organización de los eventos y de la logística interna y detrás de escena de dichos eventos. Es por esto que nuestro especialista dentro del staff es<br><b>Lic. Administración de empresas.</b></p>
+        <div class="secciones-container">
+            <div class="seccion">
+                <div class="tarjeta">
+                    <div class="seccion-front">
+                        <h3>Administracion<br>Gestion<br>Organizacion</h3>
+                    </div>
+                    <div class="seccion-back">
+                        <p>Brindamos a los organizadores una herramienta dinámica, y eficiente, orientada a la administración, gestión y organización de los eventos y de la logística interna y detrás de escena de dichos eventos. Es por esto que nuestro especialista dentro del staff es<br><b>Lic. Administración de empresas.</b></p>
+                    </div>
+                </div>
             </div>
-        </div>
-        </div>
-    <div class="seccion">
-        <div class="tarjeta">
-        <div class="seccion-front">    
-            <h3>Rendimiento<br>Deportivo</h3>
-        </div>
-            <div class="seccion-back">
-            <p>Brindarles la mejor experiencia haciendo foco en garantizar que los competidores sean los protagonistas, cuidando al detalle la comodidad y el alto desempeño del competidor. Es por esto que un Integrante del staff es <b>Lic. Ed. Fisica y deportes & Magister en Formación y Desarrollo del Rendimiento deportivo.</b></p>
-        </div>
-        </div>
-    </div>
-    <div class="seccion">
-        <div class="tarjeta">
-        <div class="seccion-front">
-            <h3>Software<br>Seguridad</h3>
-        </div>
-            <div class="seccion-back">
-            <p>Brindamos un software a medida, diseñado con versatilidad y adaptabilidad a cada instructor, escuela o federación, sin dejar de lado la importancia de la seguridad informatica, Martial Challenge cuenta con un <b>Lic. Informatica & Diplomado en seguridad informatica.</b></p>
+            <div class="seccion">
+                <div class="tarjeta">
+                    <div class="seccion-front">    
+                        <h3>Rendimiento<br>Deportivo</h3>
+                    </div>
+                    <div class="seccion-back">
+                        <p>Brindarles la mejor experiencia haciendo foco en garantizar que los competidores sean los protagonistas, cuidando al detalle la comodidad y el alto desempeño del competidor. Es por esto que un Integrante del staff es <b>Lic. Ed. Fisica y deportes & Magister en Formación y Desarrollo del Rendimiento deportivo.</b></p>
+                    </div>
+                </div>
             </div>
+            <div class="seccion">
+                <div class="tarjeta">
+                    <div class="seccion-front">
+                        <h3>Software<br>Seguridad</h3>
+                    </div>
+                    <div class="seccion-back">
+                        <p>Brindamos un software a medida, diseñado con versatilidad y adaptabilidad a cada instructor, escuela o federación, sin dejar de lado la importancia de la seguridad informatica, Martial Challenge cuenta con un <b>Lic. Informatica & Diplomado en seguridad informatica.</b></p>
+                    </div>
+                </div>
+            </div>    
         </div>
-    </div>    
-</div>
+    </section>
 
 
-<!-- PARTE 3 FIN-->
+<!-- PARTE 4-->
 
 </body>
 </html>
