@@ -573,8 +573,6 @@ p.experiencia {
 
 
 
-
-
 @media (max-width: 768px) { /* Para tablets y móviles */
 
   header .logo {
@@ -643,11 +641,39 @@ p.experiencia {
       height: 300px; /* Ajusta automáticamente la altura */
     }
     .tarjeta {
-      width: 100%; /* Asegura que el contenido interno no desborde */
+      width: 100%; /*     transform: none; /* Por defecto, las tarjetas no están volteadas */
+      transform: none; /* Por defecto, las tarjetas no están volteadas */
+      transition: transform 0.6s ease-in-out; /* Animación suave */
     }
+
+    .tarjeta.volteada {
+      transform: rotateY(180deg); /* Voltear las tarjetas */
+    }
+
+    
   .seccion-front,.seccion-back{
     font-size: 18px;
   }
+
+
+  .image-container img {
+    transform: scale(1); /* Tamaño normal por defecto */
+    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out; /* Transición suave */
+  }
+
+  .overlay {
+    opacity: 0; /* Texto oculto por defecto */
+    transition: opacity 0.6s ease-in-out; /* Transición suave */
+  }
+
+  .image-container.visible img {
+    transform: scale(1.2); /* Agranda la imagen al entrar en pantalla */
+  }
+
+  .image-container.visible .overlay {
+    opacity: 1; /* Muestra el texto al entrar en pantalla */
+  }
+
 
 }
 

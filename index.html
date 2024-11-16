@@ -199,7 +199,50 @@
     });
   </script>
 
+<script>
+    // Función para observar la visibilidad de las tarjetas
+    document.addEventListener("DOMContentLoaded", () => {
+      const tarjetas = document.querySelectorAll(".tarjeta");
+  
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("volteada"); // Voltea la tarjeta al entrar en pantalla
+            } else {
+              entry.target.classList.remove("volteada"); // Restaura al salir de pantalla
+            }
+          });
+        },
+        { threshold: 0.5 } // Al menos el 50% de la tarjeta debe ser visible
+      );
+  
+      // Aplica el observer a todas las tarjetas
+      tarjetas.forEach((tarjeta) => observer.observe(tarjeta));
+    });
+  </script>
 
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const images = document.querySelectorAll(".image-container");
+  
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible"); // Activa el efecto al entrar en pantalla
+            } else {
+              entry.target.classList.remove("visible"); // Desactiva el efecto al salir de pantalla
+            }
+          });
+        },
+        { threshold: 0.5 } // Al menos el 50% de la imagen debe ser visible
+      );
+  
+      // Aplica el observer a cada contenedor de imágenes
+      images.forEach((image) => observer.observe(image));
+    });
+  </script>
 </body>
 </html>
 
