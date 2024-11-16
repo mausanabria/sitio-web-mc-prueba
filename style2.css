@@ -1,0 +1,213 @@
+/* General */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+    text-align: center;
+  }
+  
+  header {
+    padding: 20px;
+    background-color: #20232a;
+  }
+  
+  h1 {
+    font-size: 24px;
+    color: #61dafb;
+  }
+  
+  /* Televisor */
+  .display-section {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .tv {
+    width: 600px;
+    height: 600px;
+    background-color: #444;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .scoreboard {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .competitor {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .blue {
+    color: #00f;
+  }
+  
+  .red {
+    color: #f00;
+  }
+  
+  .timer {
+    flex: 1;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .judges-results {
+    margin-top: 20px;
+  }
+  
+  .button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+  }
+  
+  .button-group button {
+    margin: 2px;
+    padding: 5px 10px;
+    font-size: 12px;
+    background-color: #61dafb;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 40px; /* Tamaño consistente */
+  }
+  
+  .button-group button:hover {
+    background-color: #21a1f1;
+  }
+
+
+
+  /* Tablet */
+  .tablet-section {
+    margin: 20px 0;
+  }
+  
+  .tablet {
+    width: 400px;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .control-button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background-color: #61dafb;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .control-button:hover {
+    background-color: #21a1f1;
+  }
+  
+  .mobile-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Espacio entre pantallas */
+  }
+  
+  .mobile {
+    width: 250px; /* Ajuste para pantalla dividida */
+    height: 120px;
+    background-color: #444;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between; /* Divide la pantalla */
+    align-items: center;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  
+  .mobile h4 {
+    margin: 5px 0;
+    font-size: 16px; /* Tamaño de texto reducido */
+  }
+  
+  .mobile button {
+    margin: 2px;
+    padding: 5px 10px;
+    font-size: 12px; /* Ajuste de tamaño */
+    background-color: #61dafb;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .mobile button:hover {
+    background-color: #21a1f1;
+  }
+  
+  .judge-half {
+    width: 50%; /* Cada mitad ocupa la mitad del contenedor */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  .judge-half h4 {
+    margin: 0;
+    font-size: 16px;
+    position: absolute;
+    top: 5px;
+  }
+  
+  .judge-half.red {
+    background-color: #880000; /* Fondo rojo para el lado izquierdo */
+  }
+  
+  .judge-half.blue {
+    background-color: #000088; /* Fondo azul para el lado derecho */
+  }
+
+
+  .judge {
+    background-color: #333;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+  }
+  
+  .bars {
+    display: flex;
+    gap: 2px;
+    margin-top: 10px;
+  }
+  
+  .bar {
+    width: 10px;
+    height: 20px;
+  }
+  
+  .bar.blue {
+    background-color: blue;
+  }
+  
+  .bar.red {
+    background-color: red;
+  }
+  

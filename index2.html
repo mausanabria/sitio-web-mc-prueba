@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulación Taekwondo ITF</title>
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+  <header>
+    <h1>Simulación de Combate ITF</h1>
+  </header>
+
+  <main>
+    <!-- Televisor -->
+    <section class="display-section">
+      <div class="tv">
+        <div class="scoreboard">
+          <div class="competitor">
+            <h2 class="name blue">Competidor Azul</h2>
+            <p class="score" id="blue-score">0</p>
+          </div>
+          <div class="timer" id="timer">02:00</div>
+          <div class="competitor">
+            <h2 class="name red">Competidor Rojo</h2>
+            <p class="score" id="red-score">0</p>
+          </div>
+        </div>
+        <div class="judges-results">
+          <h3>Resultados por Juez</h3>
+          <div class="judge" id="judge1">
+            <h4>Juez 1</h4>
+            <div class="bars" id="judge1-bars"></div>
+          </div>
+          <div class="judge" id="judge2">
+            <h4>Juez 2</h4>
+            <div class="bars" id="judge2-bars"></div>
+          </div>
+          <div class="judge" id="judge3">
+            <h4>Juez 3</h4>
+            <div class="bars" id="judge3-bars"></div>
+          </div>
+          <div class="judge" id="judge4">
+            <h4>Juez 4</h4>
+            <div class="bars" id="judge4-bars"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tablet -->
+    <section class="tablet-section">
+      <div class="tablet">
+        <button class="control-button" id="start-button" onclick="toggleTimer()">Iniciar/Parar Tiempo</button>
+        <button class="control-button" onclick="adjustDirectScore('blue', -1)">-1 Azul</button>
+        <button class="control-button" onclick="adjustDirectScore('red', -1)">-1 Rojo</button>
+      </div>
+    </section>
+    
+
+    <!-- Celulares -->
+    <section class="mobile-section">
+        <!-- Celular Juez 1 -->
+        <div class="mobile">
+          <div class="judge-half red">
+            <h4>Rojo</h4>
+            <div class="button-group">
+              <button onclick="addJudgeScore(1, 'red', 3)">+3</button>
+              <button onclick="addJudgeScore(1, 'red', -3)">-3</button>
+              <button onclick="addJudgeScore(1, 'red', 2)">+2</button>
+              <button onclick="addJudgeScore(1, 'red', -2)">-2</button>
+              <button onclick="addJudgeScore(1, 'red', 1)">+1</button>
+              <button onclick="addJudgeScore(1, 'red', -1)">-1</button>
+            </div>
+          </div>
+          <div class="judge-half blue">
+            <h4>Azul</h4>
+            <div class="button-group">
+              <button onclick="addJudgeScore(1, 'blue', -3)">-3</button>
+              <button onclick="addJudgeScore(1, 'blue', 3)">+3</button>
+              <button onclick="addJudgeScore(1, 'blue', -2)">-2</button>
+              <button onclick="addJudgeScore(1, 'blue', 2)">+2</button>
+              <button onclick="addJudgeScore(1, 'blue', -1)">-1</button>
+              <button onclick="addJudgeScore(1, 'blue', 1)">+1</button>
+            </div>
+          </div>
+        </div>
+        <!-- Celular Juez 2 -->
+        <div class="mobile">
+          <div class="judge-half red">
+            <h4>Rojo</h4>
+            <div class="button-group">
+              <button onclick="addJudgeScore(2, 'red', 3)">+3</button>
+              <button onclick="addJudgeScore(2, 'red', -3)">-3</button>
+              <button onclick="addJudgeScore(2, 'red', 2)">+2</button>
+              <button onclick="addJudgeScore(2, 'red', -2)">-2</button>
+              <button onclick="addJudgeScore(2, 'red', 1)">+1</button>
+              <button onclick="addJudgeScore(2, 'red', -1)">-1</button>
+            </div>
+          </div>
+          <div class="judge-half blue">
+            <h4>Azul</h4>
+            <div class="button-group">
+              <button onclick="addJudgeScore(2, 'blue', -3)">-3</button>
+              <button onclick="addJudgeScore(2, 'blue', 3)">+3</button>
+              <button onclick="addJudgeScore(2, 'blue', -2)">-2</button>
+              <button onclick="addJudgeScore(2, 'blue', 2)">+2</button>
+              <button onclick="addJudgeScore(2, 'blue', -1)">-1</button>
+              <button onclick="addJudgeScore(2, 'blue', 1)">+1</button>
+            </div>
+          </div>
+        </div>
+        <!-- Celular Juez 3 -->
+        <div class="mobile">
+          <div class="judge-half red">
+            <h4>Rojo</h4>
+            <div class="button-group">
+              <button onclick="addJudgeScore(3, 'red', 3)">+3</button>
+              <button onclick="addJudgeScore(3, 'red', -3)">-3</button>
+              <button onclick="addJudgeScore(3, 'red', 2)">+2</button>
+              <button onclick="addJudgeScore(3, 'red', -2)">-2</button>
+              <button onclick="addJudgeScore(3, 'red', 1)">+1</button>
+              <button onclick="addJudgeScore(3, 'red', -1)">-1</button>
+            </div>
+          </div>
+          <div class="judge-half blue">
+            <h4>Azul</h4>
+            <div class="button-group">
+              <button onclick="addJudgeScore(3, 'blue', -3)">-3</button>
+              <button onclick="addJudgeScore(3, 'blue', 3)">+3</button>
+              <button onclick="addJudgeScore(3, 'blue', -2)">-2</button>
+              <button onclick="addJudgeScore(3, 'blue', 2)">+2</button>
+              <button onclick="addJudgeScore(3, 'blue', -1)">-1</button>
+              <button onclick="addJudgeScore(3, 'blue', 1)">+1</button>
+            </div>
+          </div>
+        </div>
+        <!-- Celular Juez 4 -->
+        <div class="mobile">
+          <div class="judge-half red">
+            <h4>Rojo</h4>
+            <div class="button-group">
+              <button onclick="addJudgeScore(4, 'red', 3)">+3</button>
+              <button onclick="addJudgeScore(4, 'red', -3)">-3</button>
+              <button onclick="addJudgeScore(4, 'red', 2)">+2</button>
+              <button onclick="addJudgeScore(4, 'red', -2)">-2</button>
+              <button onclick="addJudgeScore(4, 'red', 1)">+1</button>
+              <button onclick="addJudgeScore(4, 'red', -1)">-1</button>
+            </div>
+          </div>
+          <div class="judge-half blue">
+            <h4>Azul</h4>
+            <div class="button-group">
+              <button onclick="addJudgeScore(4, 'blue', -3)">-3</button>
+              <button onclick="addJudgeScore(4, 'blue', 3)">+3</button>
+              <button onclick="addJudgeScore(4, 'blue', -2)">-2</button>
+              <button onclick="addJudgeScore(4, 'blue', 2)">+2</button>
+              <button onclick="addJudgeScore(4, 'blue', -1)">-1</button>
+              <button onclick="addJudgeScore(4, 'blue', 1)">+1</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+  </main>
+
+  <script src="script2.js"></script>
+</body>
+</html>
