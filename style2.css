@@ -8,7 +8,7 @@ body {
 }
 
 header {
-  padding: 10px;
+  padding: 5px;
   background-color: #324e8f;
 }
 
@@ -21,7 +21,28 @@ header h2 {
   font-size: 50px;
   color: #61dafb;
   font-weight: 900;
-}
+  animation: expandirContraer 3s infinite ease-in-out; /* 3 segundos, se repite indefinidamente, con transición suave */
+  }
+  @keyframes expandirContraer {
+    0%, 100% {
+      transform: scale(1); /* Tamaño normal */
+    }
+    50% {
+      transform: scale(1.15); /* Expansión al 120% */
+    }
+  }
+
+  h3 {
+    font-size: 25px;
+    color: #61dafb;
+    font-weight: 900;
+  }
+
+  .titulo-seccion {
+    width: 100%; /* Asegura que el contenedor del título ocupe todo el ancho de la sección */
+    margin-bottom: 20px; /* Espaciado debajo del título para separar del resto del contenido */
+    text-align: center; /* Asegura que el texto del título se alinee en el centro */
+  }
 
 /* Televisor */
 .display-section {
@@ -204,9 +225,40 @@ header h2 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 200px; /* Ajusta la altura para que los botones se distribuyan correctamente */
+  height: 250px; /* Ajusta la altura para que los botones se distribuyan correctamente */
   border: 5px solid white;
 
+}
+
+/* Estilo común para todos los botones */
+button tablet-section{
+  transition: background-color 0.3s ease;
+  padding: 10px 20px;
+  font-size: 22px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+/* Botón habilitado: color verde */
+button.enabled {
+  background-color: green;
+  color: white;
+}
+
+/* Botón al pasar el mouse (hover): color celeste */
+button.enabled:hover {
+  background-color: #00bcd4;
+}
+
+/* Botón deshabilitado: color gris */
+button.disabled {
+  background-color: grey;
+  cursor: not-allowed;
+}
+
+/* Opcional: si deseas un efecto cuando el botón está en estado normal (por defecto) */
+button tablet-section {
+  background-color: #4caf50; /* Color verde predeterminado */
 }
 
 .control-button-start {
@@ -256,7 +308,7 @@ header h2 {
 }
 
 .show-results-button {
-  font-size: 25px;
+  font-size: 22px;
   display: block;
   margin: 10px auto;
   padding: 10px 20px;
@@ -319,7 +371,7 @@ header h2 {
 #set-time-button {
   padding: 10px 20px;
   font-size: 25px;
-  background-color: #3498db;
+  background-color: #218838;
   color: white;
   border: none;
   border-radius: 8px;
@@ -337,6 +389,11 @@ header h2 {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
+#set-time-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  color: #666;
+}
 
 
 /* Mobile */

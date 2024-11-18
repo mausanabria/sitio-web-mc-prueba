@@ -1,6 +1,6 @@
 let isTimerRunning = false; // Estado del cronómetro
 let timerInterval = null;   // Referencia al intervalo del cronómetro
-let remainingTime = 120;    // Tiempo inicial en segundos (2 minutos)
+let remainingTime = 10;    // Tiempo inicial en segundos (2 minutos)
 let blueScore = 0;
 let redScore = 0;
 let warningsBlue = 0;
@@ -11,6 +11,26 @@ let judgesScores = [
   { blue: 0, red: 0 },
   { blue: 0, red: 0 },
 ];
+
+// Obtener los botones
+const setTimeButton = document.getElementById("set-time-button");
+const resultsButton = document.getElementById("show-results-button");
+const resetButton = document.getElementById("reset-button");
+
+// Función para habilitar un botón y aplicar el estilo correspondiente
+function enableButton(button) {
+  button.disabled = false;
+  button.classList.remove("disabled");
+  button.classList.add("enabled");
+}
+
+// Función para deshabilitar un botón y aplicar el estilo correspondiente
+function disableButton(button) {
+  button.disabled = true;
+  button.classList.remove("enabled");
+  button.classList.add("disabled");
+}
+
 
 // Ajustar puntajes generales
 function adjustScore(color, value) {
@@ -121,16 +141,17 @@ function updateJudgeScores() {
   });
 }
 
-
 function toggleTimer() {
   const timerDisplay = document.getElementById("timer");
-  const resultsButton = document.getElementById("show-results-button"); // Referencia al botón
 
   if (isTimerRunning) {
     clearInterval(timerInterval);
     isTimerRunning = false;
     timerDisplay.classList.remove("running");
     timerDisplay.classList.add("stopped");
+
+    // Volver a habilitar el botón "Establecer tiempo"
+    enableButton(setTimeButton);
   } else {
     isTimerRunning = true;
     timerInterval = setInterval(() => {
@@ -145,14 +166,18 @@ function toggleTimer() {
         timerDisplay.classList.remove("running");
         timerDisplay.classList.add("stopped");
 
-        // Habilitar el botón de resultados al llegar a 0
-        resultsButton.disabled = false; 
+        // Habilitar el botón de resultados
+        enableButton(resultsButton);
       }
     }, 1000);
     timerDisplay.classList.remove("stopped");
     timerDisplay.classList.add("running");
+
+    // Deshabilitar el botón "Establecer tiempo" mientras el cronómetro está en ejecución
+    disableButton(setTimeButton);
   }
 }
+
 
 
 
@@ -256,4 +281,49 @@ function setCustomTime() {
   const minutes = Math.floor(remainingTime / 60).toString().padStart(2, '0');
   const seconds = (remainingTime % 60).toString().padStart(2, '0');
   timerDisplay.textContent = `${minutes}:${seconds}`;
+}
+
+function resetCombat() {
+  // Eliminar cualquier mensaje de ganador
+  const existingMessage = document.querySelector(".winner-message");
+  if (existingMessage) {
+    existingMessage.remove();
+  }
+
+  // Restablecer puntajes
+  blueScore = 0;
+  redScore = 0;
+  warningsBlue = 0;
+  warningsRed = 0;
+
+  // Restablecer los puntajes de los jueces
+  judgesScores.forEach((judge) => {
+    judge.blue = 0;
+    judge.red = 0;
+  });
+
+  // Restablecer el tiempo
+  remainingTime = 10;
+  const timerDisplay = document.getElementById("timer");
+  const minutes = Math.floor(remainingTime / 60).toString().padStart(2, '0');
+  const seconds = (remainingTime % 60).toString().padStart(2, '0');
+  timerDisplay.textContent = `${minutes}:${seconds}`;
+
+  // Actualizar la pantalla de puntajes
+  updateScores();
+  updateJudgeScores();
+
+  // Detener el cronómetro si está corriendo
+  if (isTimerRunning) {
+    clearInterval(timerInterval);
+    isTimerRunning = false;
+    timerDisplay.classList.remove("running");
+    timerDisplay.classList.add("stopped");
+  }
+
+  // Habilitar el botón de "Establecer tiempo"
+  enableButton(setTimeButton);
+
+  // Habilitar el botón de resultados
+  disableButton(resultsButton);
 }
