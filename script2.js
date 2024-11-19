@@ -150,8 +150,12 @@ function toggleTimer() {
     timerDisplay.classList.remove("running");
     timerDisplay.classList.add("stopped");
 
-    // Volver a habilitar el botón "Establecer tiempo"
+    // Habilitar el botón "Establecer tiempo"
     enableButton(setTimeButton);
+
+    // Deshabilitar botones relacionados con acciones del combate
+    disableButton(document.querySelector(".control-button-blue"));
+    disableButton(document.querySelector(".control-button-red"));
   } else {
     isTimerRunning = true;
     timerInterval = setInterval(() => {
@@ -173,8 +177,12 @@ function toggleTimer() {
     timerDisplay.classList.remove("stopped");
     timerDisplay.classList.add("running");
 
-    // Deshabilitar el botón "Establecer tiempo" mientras el cronómetro está en ejecución
+    // Deshabilitar el botón "Establecer tiempo"
     disableButton(setTimeButton);
+
+    // Habilitar botones relacionados con acciones del combate
+    enableButton(document.querySelector(".control-button-blue"));
+    enableButton(document.querySelector(".control-button-red"));
   }
 }
 
@@ -183,6 +191,11 @@ function toggleTimer() {
 
 // Nueva función para incrementar advertencias
 function incrementWarning(color) {
+  if (!isTimerRunning) {
+    alert("¡El cronómetro debe estar corriendo para emitir advertencias!");
+    return;
+  }
+
   if (color === "blue") {
     warningsBlue++;
     if (warningsBlue % 3 === 0) {
@@ -194,10 +207,14 @@ function incrementWarning(color) {
       applyJudgePenalty("red");
     }
   }
+
+  // Actualizar los puntajes en pantalla
+  updateScores();
+  updateJudgeScores();
 }
 
-// Aplicar penalización a todos los jueces
 
+// Aplicar penalización a todos los jueces
 function applyJudgePenalty(color) {
   judgesScores.forEach((judge) => {
     if (color === "blue") {
@@ -214,8 +231,10 @@ function applyJudgePenalty(color) {
       }
     }
   });
-  updateJudgeScores(); // Actualiza las pantallas de los jueces
-  calculateOverallScores(); // Actualiza el marcador general
+
+  // Actualizar los puntajes de los jueces y el marcador general
+  updateJudgeScores();
+  calculateOverallScores();
 }
 
 
