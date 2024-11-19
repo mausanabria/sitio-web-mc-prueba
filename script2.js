@@ -322,7 +322,7 @@ function resetCombat() {
   });
 
   // Restablecer el tiempo
-  remainingTime = 10;
+  remainingTime = 120;
   const timerDisplay = document.getElementById("timer");
   const minutes = Math.floor(remainingTime / 60).toString().padStart(2, '0');
   const seconds = (remainingTime % 60).toString().padStart(2, '0');
