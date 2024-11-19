@@ -1,6 +1,6 @@
 let isTimerRunning = false; // Estado del cronómetro
 let timerInterval = null;   // Referencia al intervalo del cronómetro
-let remainingTime = 10;    // Tiempo inicial en segundos (2 minutos)
+let remainingTime = 120;    // Tiempo inicial en segundos (2 minutos)
 let blueScore = 0;
 let redScore = 0;
 let warningsBlue = 0;
