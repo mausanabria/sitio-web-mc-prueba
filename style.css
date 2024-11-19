@@ -253,6 +253,61 @@ section.imagensobretexto {
 
 /* PARTE 2 FIN */
 
+#Simulador {
+  padding: 40px;
+  text-align: center;
+  background-color: black;
+  border-top: 2px solid #333;
+  border-bottom: 2px solid #333;
+}
+.botones-simulacion{
+  display: flex;
+  flex-direction: column;  /* Esto pone los botones y los párrafos en columna */
+  align-items: center;     /* Alinea los elementos en el centro */
+  gap: 20px;               /* Espacio entre los botones y los párrafos */
+
+
+}
+.boton-simulacion{
+  background-color: #444; /* Color gris oscuro */
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.3rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 50px;  /* Bordes redondeados */
+  text-transform: uppercase; /* Pone el texto en mayúsculas */
+  letter-spacing: 2px; /* Espaciado entre letras */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Sombra sutil */
+  transition: all 0.3s ease;  /* Transición suave */
+  width: 280px;  /* Tamaño fijo para los botones */
+  margin: 0 auto;  /* Centrado automático */
+}
+
+.boton-simulacion:hover {
+  background-color: #847373;  /* Cambio de color de fondo */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);  /* Sombra más pronunciada */
+  transform: translateY(-4px);  /* Efecto de "levantado" */
+}
+/* Efecto de enfoque al dar clic en el botón */
+.boton-simulacion:active {
+  transform: translateY(4px);  /* Efecto al presionar */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Estilo de la descripción */
+.descripcion-simulacion {
+  font-size: 1.3rem;
+  color: #a6a5a5;  /* Gris suave para el texto */
+  line-height: 1.5;
+  max-width: 600px;  /* Limita el ancho del texto */
+  margin: 0 auto;
+  font-family: sans-serif;  /* Tipografía limpia */
+
+}
+
+
 
 /* Contenedor del carrousel */
 .carousel-container {
@@ -305,7 +360,7 @@ section.imagensobretexto {
 
 .subtitulo {
   font-family: dancing;
-  font-size: 40px;
+  font-size: 3rem;
   font-weight:bold;
   color: black; /* Color del texto */
   background-color: white; /* Fondo blanco */
@@ -612,13 +667,21 @@ p.experiencia {
 }
 
   .subtitulo {
-    font-size: 25px; /* Reduce el tamaño del subtítulo */
+font-size: 1.1rem;
     margin: 0 auto;
   }
 
   .encabezado_pricipal{
     font-size: 18px;
   }
+
+
+  .boton-simulacion{
+    font-size: 1rem;
+    width: 250px;  /* Tamaño fijo para los botones */
+    margin-top: 15px;
+  }
+
 
 
   p.quienes-somos, p.experiencia {
