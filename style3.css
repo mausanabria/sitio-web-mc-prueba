@@ -113,7 +113,7 @@ header h2 {
 }
 
 .blue {
-  background-color:rgb(46, 76, 210);
+  background-color: rgb(46, 76, 210);
   color: white;
   border-radius: 20px;
   display: flex;
@@ -137,17 +137,11 @@ header h2 {
 
 }
 
-.timer {
-  color: rgb(255, 140, 0);
-  font-size: 80px;
-  font-weight: bold;
-  margin-top: 130px;
-}
 
 .tv-container{
   display: flex;
   width: 100%;
-  height: 50%;
+  height: 60%;
   align-items: center;
   justify-content: center;
 }
@@ -159,7 +153,7 @@ header h2 {
   flex-direction: row; /* Organiza los elementos en filas */
   justify-content: center;
   gap: 15px;
-  margin-bottom: 20px;
+  margin-top: 10px;
 }
 
 .judge {
@@ -172,33 +166,13 @@ header h2 {
   height: 150px;
 }
 
-.bars {
-  display: flex;
-  gap: 2px;
-  margin: 5px;
-  margin-bottom: 20px;
-}
-
-.bar {
-  width: 15px;
-  height: 25px;
-  margin-bottom: 20px;
-}
-
-.bar.blue {
-  background-color: rgb(46, 76, 210);
-}
-
-.bar.red {
-  background-color: red;
-}
 
 .winner-message {
   position: absolute; /* Coloca el texto sobre el contenido de la TV */
   top: 55%; /* Ajusta la posición vertical debajo del logo */
   left: 50%; /* Centra horizontalmente */
   transform: translateX(-50%); /* Centra el texto basado en su ancho */
-  font-size: 60px; /* Ajusta el tamaño del texto */
+  font-size: 70px; /* Ajusta el tamaño del texto */
   font-weight: bold;
   color: white; /* Color predeterminado, cambiará dinámicamente */
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Añade sombra para visibilidad */
@@ -221,15 +195,20 @@ header h2 {
 .tablet {
   width: 500px;
   background-color: #2d3727;
-  padding: 20px;
   border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   height: 250px; /* Ajusta la altura para que los botones se distribuyan correctamente */
   border: 5px solid white;
+}
+
+.timer-inputs{
+padding: 25px;
 
 }
+
+.button-result{
+  padding: 25px;
+}
+
 
 /* Estilo común para todos los botones */
 button tablet-section{
@@ -239,11 +218,19 @@ button tablet-section{
   border: none;
   cursor: pointer;
   border-radius: 5px;
+
+
 }
 /* Botón habilitado: color verde */
 button.enabled {
   background-color: green;
   color: white;
+  cursor: pointer;
+}
+button.disabled {
+  background-color: grey;
+  color: #666;
+  cursor: not-allowed;
 }
 
 /* Botón al pasar el mouse (hover): color celeste */
@@ -251,37 +238,21 @@ button.enabled:hover {
   background-color: #00bcd4;
 }
 
-/* Botón deshabilitado: color gris */
-button.disabled {
-  background-color: grey;
-  cursor: not-allowed;
-}
 
 /* Opcional: si deseas un efecto cuando el botón está en estado normal (por defecto) */
 button tablet-section {
   background-color: #4caf50; /* Color verde predeterminado */
 }
 
-.control-button-start {
-  font-size: 20px;
-  display: block;
-  margin: 10px auto;
-  padding: 10px 20px;
-  background-color: #ffffff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
 
 .control-button {
   font-size: 20px;
-  display: block;
   padding: 10px 20px;
   background-color: #ffffff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+
 }
 
 /* Sección para los botones de advertencia (azul y rojo) */
@@ -291,21 +262,6 @@ button tablet-section {
   width: 100%;
   padding-top: 15px;
   margin: auto 10px; /* Para que los botones queden al fondo de la tablet */
-}
-
-.button-point {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin: auto 10px;
-}
-
-.control-button-blue:hover {
-  background-color: rgb(46, 76, 210);
-}
-
-.control-button-red:hover {
-  background-color: red;
 }
 
 .show-results-button {
@@ -328,74 +284,6 @@ button tablet-section {
   background-color: #21a1f1;
 }
 
-.show-results-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-  color: #666;
-}
-
-/* Estilo general para los contenedores de los inputs y el botón */
-.timer-inputs {
-  display: flex;
-  flex-direction: column; /* Cambia la dirección a columna */
-  justify-content: center;
-  align-items: center;
-  gap: 10px; /* Espacio entre los elementos */
-  margin-top: 0;
-}
-
-/* Contenedor de los inputs para alinearlos en fila */
-.time-inputs {
-  display: flex; /* Flexbox para que estén en fila */
-  gap: 10px; /* Espacio entre los inputs */
-  align-items: center; /* Alinear los inputs verticalmente */
-}
-
-/* Estilo para los inputs de minutos y segundos */
-#input-minutes, #input-seconds {
-  width: 130px;
-  padding: 10px;
-  font-size: 25px;
-  text-align: center;
-  border: 2px solid #3498db;
-  border-radius: 8px;
-  outline: none;
-  transition: border-color 0.3s ease;
-}
-
-/* Cambiar el color del borde cuando el input está enfocado */
-#input-minutes:focus, #input-seconds:focus {
-  border-color: #2980b9;
-}
-
-/* Estilo para el botón */
-#set-time-button {
-  padding: 10px 20px;
-  font-size: 25px;
-  background-color: #218838;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-/* Cambiar el color del fondo del botón al pasar el mouse */
-#set-time-button:hover {
-  background-color: #2980b9;
-}
-
-/* Agregar sombra sutil al botón al hacer clic */
-#set-time-button:active {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-#set-time-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-  color: #666;
-}
-
 
 /* Mobile */
 .mobile-section {
@@ -412,8 +300,8 @@ button tablet-section {
   border-radius: 30px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  align-content: center;
+  justify-content: center;
   color: white;
   font-size: 14px;
   cursor: pointer;
@@ -426,69 +314,33 @@ button tablet-section {
 }
 
 .mobile h4 {
-  margin: 5px 0;
+  margin-bottom: 50px;
+  margin-top: 0;
   font-size: 20px;
 }
-
-.judge-half {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.button-group {
-  display: flex; /* Activa flexbox */
-
-
-}
-
-.button-group-more,
-.button-group-less {
-  display: flex; /* Activa flexbox para los botones dentro de cada grupo */
-  flex-direction: column; /* Acomoda los botones en una columna */
-  gap: 5px; /* Agrega espacio entre los botones */
-}
-
 
 /* Contenedor de los botones azules y rojos alineados en fila */
 .buttons-container {
   display: flex;
+  gap: 20px;
+}
+/* Botón seleccionado */
+.judge-button.selected {
+  border: 3px solid yellow; /* Resaltar con un borde amarillo */
+  transform: scale(1.1); /* Aumentar ligeramente el tamaño */
+  opacity: 1; /* Asegurarse de que esté completamente visible */
+}
+
+/* Botones opacados */
+.judge-button.faded {
+  opacity: 0.5; /* Reducir la opacidad para botones no seleccionados */
+  transform: scale(1); /* Tamaño normal */
+}
+
+.judge-button{
   width: 100%;
-  justify-content: space-between; /* Separa los contenedores de los botones */
-  gap: 5px;
-}
-
-/* Botones de acción */
-.button-group button {
-  margin: 3px;
-  padding: 6px 10px;
-  font-size: 18px;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  cursor: pointer;
-  color: black;
+  height: 60px;
+  font-size: 20px;
+  transition: transform 0.2s ease, opacity 0.2s ease, border 0.2s ease;
   
-}
-
-  .button-group button:hover {
-    opacity: 0.8;  /* Añade un efecto sutil al pasar el ratón */
-  }
-
-/* Botones azules */
-.blue {
-  background-color: rgb(46, 76, 210);
-}
-
-.blue:hover {
-  background-color: #003366;
-}
-
-/* Botones rojos */
-.red {
-  background-color: #f00;
-}
-
-.red:hover {
-  background-color: #660000;
 }

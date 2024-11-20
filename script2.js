@@ -1,6 +1,6 @@
 let isTimerRunning = false; // Estado del cronómetro
 let timerInterval = null;   // Referencia al intervalo del cronómetro
-let remainingTime = 120;    // Tiempo inicial en segundos (2 minutos)
+let remainingTime = 10;    // Tiempo inicial en segundos (2 minutos)
 let blueScore = 0;
 let redScore = 0;
 let warningsBlue = 0;
@@ -99,25 +99,37 @@ function addJudgeScore(judgeIndex, color, value) {
   calculateOverallScores();
 }
 
-// Actualizar puntajes generales de los competidores según los jueces
 function calculateOverallScores() {
   let blueWinningJudges = 0;
   let redWinningJudges = 0;
 
   judgesScores.forEach((score) => {
-    const diff = score.blue - score.red;
-    if (diff > 0) {
-      blueWinningJudges++; // Juez favorece a azul
-    } else if (diff < 0) {
-      redWinningJudges++; // Juez favorece a rojo
-    }
+      const diff = score.blue - score.red;
+      if (diff > 0) {
+          blueWinningJudges++; // Juez favorece a Azul
+      } else if (diff < 0) {
+          redWinningJudges++; // Juez favorece a Rojo
+      }
   });
 
-  // Ajustar los puntajes generales con los jueces que los favorecen
-  blueScore = blueWinningJudges;
-  redScore = redWinningJudges;
+  const totalJudges = judgesScores.length;
+  const halfJudges = Math.ceil(totalJudges / 2);
+
+  // Nueva lógica para determinar el ganador
+  if (blueWinningJudges >= halfJudges) {
+      blueScore = blueWinningJudges;
+      redScore = 0;
+  } else if (redWinningJudges >= halfJudges) {
+      redScore = redWinningJudges;
+      blueScore = 0;
+  } else {
+      blueScore = 0;
+      redScore = 0; // Empate
+  }
+
   updateScores();
 }
+
 
 // Actualizar la pantalla
 function updateScores() {
@@ -322,7 +334,7 @@ function resetCombat() {
   });
 
   // Restablecer el tiempo
-  remainingTime = 120;
+  remainingTime = 10;
   const timerDisplay = document.getElementById("timer");
   const minutes = Math.floor(remainingTime / 60).toString().padStart(2, '0');
   const seconds = (remainingTime % 60).toString().padStart(2, '0');

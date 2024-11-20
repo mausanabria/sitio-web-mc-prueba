@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulación Taekwondo ITF</title>
+  <link rel="stylesheet" href="style3.css">
+  <link rel="stylesheet" href="script3.js">
+</head>
+<body>
+  <header>
+    <h1>Simulación de Combate ITF</h1>
+    <h2>MARTIAL CHALLENGE DEMO</h2>
+  </header>
+
+  <main>
+
+        <!-- Televisor -->
+    <div class="titulo-seccion">
+      <h3>Vista TV - Publico General</h3>
+    </div>
+
+    <section class="display-section">
+      
+      <div class="tv">
+        <div class="logo">
+          <img src="martiall.jpeg" alt="Logo">
+        </div>
+        <div class="winner-message"></div>
+        <div class="top-section">
+          <div class="scoreboard">
+            <div class="competitor blue">
+              <h2 class="name">Competidor Azul</h2>
+              <p class="score" id="blue-score">0</p>
+            </div>
+            <div class="competitor red">
+              <h2 class="name">Competidor Rojo</h2>
+              <p class="score" id="red-score">0</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="tv-container">
+          
+          <!-- Parte negra del televisor -->
+          <div class="tv-screen">
+            <div class="bottom-section">
+              <div class="judges-results">
+                <div class="judge" id="judge1">
+                  <h4>Juez 1</h4>
+                  <div class="bars" id="judge1-bars"></div>
+                </div>
+                <div class="judge" id="judge2">
+                  <h4>Juez 2</h4>
+                  <div class="bars" id="judge2-bars"></div>
+                </div>
+                <div class="judge" id="judge3">
+                  <h4>Juez 3</h4>
+                  <div class="bars" id="judge3-bars"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <!-- Tablet -->
+        
+    <div class="titulo-seccion">
+      <h3>Vista Notbook -Operador/Jefe de Mesa</h3>
+    </div>  
+
+    <section class="tablet-section">
+      
+      <div class="tablet">
+      <div class="timer-inputs">
+      <div class="button-result">
+        <button class="control-button show-results-button" id="show-results-button" onclick="showResults()" disabled>Mostrar Resultados</button>
+      </div>
+      <div class="button-restart">
+      <button id="reset-combat-button" class="control-button" onclick="resetCombat()">Reiniciar Combate</button>
+    </div>
+    </div>
+  </div>
+  
+    </section>
+    
+
+    <!-- Celulares -->
+
+    <div class="titulo-seccion">
+      <h3>Vista Celulares - Jueces</h3>
+    </div>
+
+    <section class="mobile-section">
+     
+        <!-- Celular Juez 1 -->
+        <div class="mobile">
+          <h4 class="phone-judge">Juez 1</h4>
+          <div class="buttons-container">
+          
+            <button class="judge-button blue" onclick="selectJudgeDecision(1, 'blue')">Azul</button>
+            <button class="judge-button draw" onclick="selectJudgeDecision(1, 'draw')">Empate</button>
+            <button class="judge-button red" onclick="selectJudgeDecision(1, 'red')">Rojo</button>
+        </div>
+      </div>
+
+        <!-- Celular Juez 2 -->
+        <div class="mobile">
+          <h4 class="phone-judge">Juez 2</h4>
+          <div class="buttons-container">
+          
+            <button class="judge-button blue" onclick="selectJudgeDecision(2, 'blue')">Azul</button>
+            <button class="judge-button draw" onclick="selectJudgeDecision(2, 'draw')">Empate</button>
+            <button class="judge-button red" onclick="selectJudgeDecision(2, 'red')">Rojo</button>
+        </div>
+      </div>
+        <!-- Celular Juez 3 -->
+        <div class="mobile">
+          <h4 class="phone-judge">Juez 3</h4>
+          <div class="buttons-container">
+          
+            <button class="judge-button blue" onclick="selectJudgeDecision(3, 'blue')">Azul</button>
+            <button class="judge-button draw" onclick="selectJudgeDecision(3, 'draw')">Empate</button>
+            <button class="judge-button red" onclick="selectJudgeDecision(3, 'red')">Rojo</button>
+        </div>
+      </div>
+      </section>
+      
+  </main>
+
+  <script src="script3.js"></script>
+</body>
+</html>
