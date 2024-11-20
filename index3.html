@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simulación Taekwondo ITF</title>
   <link rel="stylesheet" href="style3.css">
-  <link rel="stylesheet" href="script3.js">
+  <script src="script3.js"></script>
 </head>
 <body>
   <header>
@@ -68,21 +68,37 @@
         <!-- Tablet -->
         
     <div class="titulo-seccion">
-      <h3>Vista Notbook -Operador/Jefe de Mesa</h3>
+      <h3>Vista Notebook -Operador/Jefe de Mesa</h3>
     </div>  
 
     <section class="tablet-section">
-      
       <div class="tablet">
       <div class="timer-inputs">
       <div class="button-result">
-        <button class="control-button show-results-button" id="show-results-button" onclick="showResults()" disabled>Mostrar Resultados</button>
+        <button class="control-button show-results-button disabled" id="show-results-button" onclick="showResults()" disabled>Mostrar Resultados</button>
       </div>
       <div class="button-restart">
-      <button id="reset-combat-button" class="control-button" onclick="resetCombat()">Reiniciar Combate</button>
+      <button id="reset-combat-button" class="control-button" onclick="resetCombat()">Reiniciar Enfrentamiento</button>
     </div>
+    </div>
+    <div class="bottom-section">
+    <div class="judges-results">
+      <div class="judge" id="judge1">
+        <h4>Juez 1</h4>
+        <div class="bars" id="judge1-bars"></div>
+      </div>
+      <div class="judge" id="judge2">
+        <h4>Juez 2</h4>
+        <div class="bars" id="judge2-bars"></div>
+      </div>
+      <div class="judge" id="judge3">
+        <h4>Juez 3</h4>
+        <div class="bars" id="judge3-bars"></div>
+      </div>
     </div>
   </div>
+  </div>
+  
   
     </section>
     

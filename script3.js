@@ -2,7 +2,6 @@
 let judgeDecisions = ["", "", ""]; // Almacena la decisión de cada juez
 let resultsLocked = false; // Bloquea cambios cuando se muestran los resultados
 
-
 // Función para manejar la selección de decisión de un juez
 function selectJudgeDecision(judgeIndex, decision) {
   if (resultsLocked) return; // No permitir cambios si los resultados están bloqueados
@@ -25,11 +24,43 @@ function selectJudgeDecision(judgeIndex, decision) {
     selectedButton.classList.remove("faded");
   }
 
+  // Actualizar resultados en tiempo real en la Tablet
+  updateTabletJudgeResult(judgeIndex, decision);
+
   // Verificar si todos los jueces han decidido
   checkAllJudgesDecided();
 }
 
+// Función para actualizar los resultados en la Tablet
+function updateTabletJudgeResult(judgeIndex, decision) {
+  const barsContainer = document.querySelector(`.tablet #judge${judgeIndex}-bars`);
+  barsContainer.innerHTML = ""; // Limpiar contenido anterior
 
+  // Mostrar barras en la Tablet como en la TV
+  if (decision === "blue" || decision === "red") {
+    const bar = document.createElement("div");
+    bar.className = `bar ${decision}`; // Clase basada en la decisión del juez
+    bar.style.height = "20px";
+    bar.style.width = "100%";
+    barsContainer.appendChild(bar); // Añadir la barra al contenedor
+  } else if (decision === "draw") {
+    // Crear una barra dividida para empate
+    const barBlue = document.createElement("div");
+    barBlue.className = "bar blue";
+    barBlue.style.height = "20px";
+    barBlue.style.width = "50%";
+    barBlue.style.float = "left";
+
+    const barRed = document.createElement("div");
+    barRed.className = "bar red";
+    barRed.style.height = "20px";
+    barRed.style.width = "50%";
+    barRed.style.float = "left";
+
+    barsContainer.appendChild(barBlue);
+    barsContainer.appendChild(barRed);
+  }
+}
 
 // Función para mostrar resultados en la TV
 function showResults() {
@@ -96,8 +127,6 @@ function showResults() {
   });
 }
 
-
-
 // Función para reiniciar el combate
 function resetCombat() {
   // Restablecer decisiones y desbloquear resultados
@@ -108,15 +137,16 @@ function resetCombat() {
   document.getElementById("blue-score").textContent = "0";
   document.getElementById("red-score").textContent = "0";
 
-  // Limpiar barras en la sección de jueces
+  // Limpiar barras en la Tablet y TV
   for (let i = 1; i <= 3; i++) {
-    const barsContainer = document.getElementById(`judge${i}-bars`);
-    barsContainer.innerHTML = "";
-  }
+    // Limpiar la Tablet
+    const tabletBarsContainer = document.querySelector(`.tablet #judge${i}-bars`);
+    if (tabletBarsContainer) tabletBarsContainer.innerHTML = "";
 
-  // Ocultar resultados de los jueces
-  const judgesResultsSection = document.querySelector(".judges-results");
-  judgesResultsSection.classList.add("hidden");
+    // Limpiar la TV
+    const tvBarsContainer = document.getElementById(`judge${i}-bars`);
+    if (tvBarsContainer) tvBarsContainer.innerHTML = "";
+  }
 
   // Restablecer los botones de los celulares de los jueces
   const buttons = document.querySelectorAll(".judge-button");
@@ -137,6 +167,7 @@ function resetCombat() {
   showResultsButton.classList.add("disabled");
 }
 
+// Función para verificar si todos los jueces han decidido
 function checkAllJudgesDecided() {
   const allDecided = judgeDecisions.every(decision => decision !== ""); // Verificar que no haya valores vacíos
   const showResultsButton = document.getElementById("show-results-button");

@@ -193,10 +193,10 @@ header h2 {
 }
 
 .tablet {
-  width: 500px;
+  width: 900px;
   background-color: #2d3727;
   border-radius: 10px;
-  height: 250px; /* Ajusta la altura para que los botones se distribuyan correctamente */
+  height: 400px; /* Ajusta la altura para que los botones se distribuyan correctamente */
   border: 5px solid white;
 }
 
