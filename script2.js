@@ -3,6 +3,8 @@ let timerInterval = null;   // Referencia al intervalo del cronómetro
 let remainingTime = 10;    // Tiempo inicial en segundos (2 minutos)
 let blueScore = 0;
 let redScore = 0;
+let directPointsBlue = 0; // Puntos en contra para Azul
+let directPointsRed = 0;  // Puntos en contra para Rojo
 let warningsBlue = 0;
 let warningsRed = 0;
 let judgesScores = [
@@ -44,14 +46,18 @@ function adjustScore(color, value) {
 
 // Agregar advertencias
 function addWarning(color) {
+  if (!isTimerRunning) {
+    alert("¡El cronómetro debe estar corriendo para emitir advertencias!");
+    return;
+  }
+
   if (color === "blue") {
     warningsBlue++;
-    if (warningsBlue % 3 === 0) adjustScore("blue", -1);
-  } else {
+  } else if (color === "red") {
     warningsRed++;
-    if (warningsRed % 3 === 0) adjustScore("red", -1);
   }
-  updateScores();
+
+  updateScores(); // Actualizar los mensajes en la pantalla
 }
 
 
@@ -67,15 +73,23 @@ function adjustDirectScore(color, value) {
   // Sumar puntos al oponente en cada juez
   judgesScores.forEach((judge) => {
     if (opponentColor === "blue") {
-      judge.blue += Math.abs(value); // Asegurarse de que se sume siempre un valor positivo
+      judge.blue += Math.abs(value); // Asegurar un valor positivo
     } else if (opponentColor === "red") {
       judge.red += Math.abs(value);
     }
   });
 
+  // Incrementar Puntos en Contra
+  if (opponentColor === "blue") {
+    directPointsBlue += Math.abs(value);
+  } else if (opponentColor === "red") {
+    directPointsRed += Math.abs(value);
+  }
+
   // Actualizar la pantalla
   updateJudgeScores();
   calculateOverallScores();
+  updateScores(); // Asegurar que se actualicen los mensajes
 }
 
 
@@ -84,7 +98,7 @@ function adjustDirectScore(color, value) {
 // Ajustar puntos por juez
 function addJudgeScore(judgeIndex, color, value) {
   if (!isTimerRunning) {
-    alert("¡El cronómetro debe estar corriendo para marcar puntos!");
+    alert("¡El cronómetro debe estar corriendo para asignar puntos!");
     return;
   }
 
@@ -95,63 +109,87 @@ function addJudgeScore(judgeIndex, color, value) {
     judge.red += value;
   }
 
-  updateJudgeScores();
-  calculateOverallScores();
+  updateJudgeScores(); // Actualiza las barras en la TV
+  updateTabletJudgeScores(); // Actualiza las barras en la Tablet
+  calculateOverallScores(); // Calcula el puntaje general
 }
+
 
 function calculateOverallScores() {
   let blueWinningJudges = 0;
   let redWinningJudges = 0;
+  let draws = 0; // Contar los jueces que declaran empate
 
-  judgesScores.forEach((score) => {
-      const diff = score.blue - score.red;
-      if (diff > 0) {
-          blueWinningJudges++; // Juez favorece a Azul
-      } else if (diff < 0) {
-          redWinningJudges++; // Juez favorece a Rojo
-      }
+  // Contar los jueces que favorecen a cada competidor y los empates
+  judgesScores.forEach(score => {
+    const diff = score.blue - score.red;
+    if (diff > 0) {
+      blueWinningJudges++; // Juez favorece a Azul
+    } else if (diff < 0) {
+      redWinningJudges++; // Juez favorece a Rojo
+    } else {
+      draws++; // Juez declara empate
+    }
   });
 
   const totalJudges = judgesScores.length;
-  const halfJudges = Math.ceil(totalJudges / 2);
+  const halfJudges = Math.ceil(totalJudges / 2); // Necesitamos al menos la mitad de los jueces
 
-  // Nueva lógica para determinar el ganador
+  // Determinar el ganador
+  let winnerMessage = "Empate"; // Mensaje por defecto
+
+  // Asegurarse de que el competidor tenga la mayoría de los jueces a su favor
   if (blueWinningJudges >= halfJudges) {
-      blueScore = blueWinningJudges;
-      redScore = 0;
+    winnerMessage = "Ganador Azul";
   } else if (redWinningJudges >= halfJudges) {
-      redScore = redWinningJudges;
-      blueScore = 0;
-  } else {
-      blueScore = 0;
-      redScore = 0; // Empate
+    winnerMessage = "Ganador Rojo";
   }
 
+  // Actualizar los puntajes en la pantalla
+  blueScore = blueWinningJudges;
+  redScore = redWinningJudges;
   updateScores();
 }
 
 
-// Actualizar la pantalla
+
+
+
 function updateScores() {
+  // Actualizar los puntajes generales
   document.getElementById("blue-score").textContent = blueScore;
   document.getElementById("red-score").textContent = redScore;
+
+  // Actualizar los puntos en contra y advertencias
+  document.getElementById("blue-points-against").textContent = directPointsBlue;
+  document.getElementById("blue-warnings").textContent = warningsBlue;
+
+  document.getElementById("red-points-against").textContent = directPointsRed;
+  document.getElementById("red-warnings").textContent = warningsRed;
 }
+
 
 // Actualizar resultados por juez y las barras
 function updateJudgeScores() {
   judgesScores.forEach((score, index) => {
-    const diff = score.blue - score.red;
-    const barsContainer = document.getElementById(`judge${index + 1}-bars`);
-    barsContainer.innerHTML = ""; // Limpia las barras
+    const barsContainer = document.querySelector(`#judge${index + 1}-bars`);
+    if (barsContainer) {
+      barsContainer.innerHTML = ""; // Limpia las barras anteriores
 
-    const barsCount = Math.abs(diff);
-    for (let i = 0; i < barsCount; i++) {
-      const bar = document.createElement("div");
-      bar.className = "bar " + (diff > 0 ? "blue" : "red");
-      barsContainer.appendChild(bar);
+      const diff = score.blue - score.red;
+      const barsCount = Math.abs(diff);
+
+      for (let i = 0; i < barsCount; i++) {
+        const bar = document.createElement("div");
+        bar.className = `bar ${diff > 0 ? "blue" : "red"}`;
+        barsContainer.appendChild(bar);
+      }
     }
   });
+
+  updateTabletJudgeScores(); // Actualizar también las barras en la Tablet
 }
+
 
 function toggleTimer() {
   const timerDisplay = document.getElementById("timer");
@@ -260,16 +298,28 @@ function showResults() {
     existingMessage.remove();
   }
 
-  // Determina el ganador
+  // Obtener la cantidad de jueces a favor de cada competidor
+  const blueWinningJudges = blueScore;  // Número de jueces que favorecen a Azul
+  const redWinningJudges = redScore;    // Número de jueces que favorecen a Rojo
+  const totalJudges = judgesScores.length;
+  const halfJudges = Math.ceil(totalJudges / 2); // Necesitamos al menos la mitad de los jueces
+
+  // Determina el ganador basado en la mayoría de jueces a favor
   let winnerText = "";
   let winnerColor = "white";
-  if (blueScore > redScore) {
+
+  // Si Azul tiene la mayoría de jueces a su favor
+  if (blueWinningJudges >= halfJudges) {
     winnerText = "Ganador Azul";
     winnerColor = "blue";
-  } else if (redScore > blueScore) {
+  }
+  // Si Rojo tiene la mayoría de jueces a su favor
+  else if (redWinningJudges >= halfJudges) {
     winnerText = "Ganador Rojo";
     winnerColor = "red";
-  } else {
+  }
+  // Si ninguno tiene la mayoría de jueces a su favor, es empate
+  else {
     winnerText = "Empate";
   }
 
@@ -281,8 +331,9 @@ function showResults() {
 
   // Inserta el mensaje en el contenedor principal de la TV
   const tvContainer = document.querySelector(".tv");
-  tvContainer.appendChild(messageElement);
+  tvContainer.appendChild(messageElement); // Muestra el mensaje del ganador
 }
+
 
 function setCustomTime() {
   // Obtener los valores de los campos de entrada
@@ -326,7 +377,8 @@ function resetCombat() {
   redScore = 0;
   warningsBlue = 0;
   warningsRed = 0;
-
+  directPointsBlue = 0; // Restablecer puntos menos directos Azul
+  directPointsRed = 0;  // Restablecer puntos menos directos Ro
   // Restablecer los puntajes de los jueces
   judgesScores.forEach((judge) => {
     judge.blue = 0;
@@ -343,6 +395,7 @@ function resetCombat() {
   // Actualizar la pantalla de puntajes
   updateScores();
   updateJudgeScores();
+  updateTabletJudgeScores(); // Reiniciar barras en la Tablet
 
   // Detener el cronómetro si está corriendo
   if (isTimerRunning) {
@@ -357,4 +410,24 @@ function resetCombat() {
 
   // Habilitar el botón de resultados
   disableButton(resultsButton);
+}
+
+// Nueva función: Actualizar las barras en la sección Tablet
+function updateTabletJudgeScores() {
+  judgesScores.forEach((score, index) => {
+    const barsContainer = document.querySelector(`.tablet-judge #judge${index + 1}-bars`);
+    if (barsContainer) {
+      barsContainer.innerHTML = ""; // Limpia el contenido anterior
+
+      const diff = score.blue - score.red; // Diferencia de puntos azul-rojo
+      const barsCount = Math.abs(diff); // Número de barras según la diferencia
+
+      // Crear barras visuales
+      for (let i = 0; i < barsCount; i++) {
+        const bar = document.createElement("div");
+        bar.className = `bar ${diff > 0 ? "blue" : "red"}`; // Azul si > 0, Rojo si < 0
+        barsContainer.appendChild(bar); // Añadir la barra al contenedor
+      }
+    }
+  });
 }

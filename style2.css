@@ -206,30 +206,51 @@ header h2 {
   text-align: center; /* Centra el texto */
 }
 
+.info {
+  position: relative;
+  bottom: 10px; /* Ajusta la distancia desde la parte inferior */
+  left: 10px; /* Ajusta la distancia desde el lado izquierdo */
+  font-size: 20px;
+  color: white; /* Asegura que el texto sea visible */
+}
+
 
 
 
 /* Tablet */
 .tablet-section {
-  margin: 20px 0;
+
   display: flex;
   align-content: center;
   justify-content: center;
+  flex-wrap: wrap; /* Permite que los elementos se ajusten en filas múltiples */
+  border: 5px solid white;
+  width: 55%;
+  background-color: #2d3727;
+  margin: auto;
 
 }
-
 .tablet {
-  width: 500px;
-  background-color: #2d3727;
+  margin: 0 60px; /* Espaciado horizontal (izquierda y derecha) */
+}
+
+.tablet, .tablet-judge {
   padding: 20px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 250px; /* Ajusta la altura para que los botones se distribuyan correctamente */
-  border: 5px solid white;
 
 }
+
+.tablet-judge {
+  margin: 0; /* Elimina márgenes adicionales */
+  height: 150px;
+
+}
+
+
 
 /* Estilo común para todos los botones */
 button tablet-section{
@@ -263,20 +284,18 @@ button tablet-section {
 }
 
 .control-button-start {
+
   font-size: 20px;
-  display: block;
-  margin: 10px auto;
-  padding: 10px 20px;
   background-color: #ffffff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  
 }
 
 
 .control-button {
   font-size: 20px;
-  display: block;
   padding: 10px 20px;
   background-color: #ffffff;
   border: none;

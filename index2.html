@@ -27,16 +27,26 @@
         <div class="logo">
           <img src="martiall.jpeg" alt="Logo">
         </div>
+
         <div class="winner-message"></div>
+        
         <div class="top-section">
           <div class="scoreboard">
             <div class="competitor blue">
               <h2 class="name">Competidor Azul</h2>
               <p class="score" id="blue-score">0</p>
+              <div class="info">
+                <p>Punto en contra: <span id="red-points-against">0</span></p>
+                <p>Advertencia: <span id="blue-warnings">0</span></p>
+              </div>
             </div>
             <div class="competitor red">
               <h2 class="name">Competidor Rojo</h2>
               <p class="score" id="red-score">0</p>
+              <div class="info">
+                <p>Punto en contra: <span id="blue-points-against">0</span></p>
+                <p>Advertencia: <span id="red-warnings">0</span></p>
+              </div>
             </div>
           </div>
         </div>
@@ -79,9 +89,8 @@
     </div>  
 
     <section class="tablet-section">
-      
+
       <div class="tablet">
-      <div class="timer-inputs">
         <!-- Botón de Establecer Tiempo -->
         <button onclick="setCustomTime()" id="set-time-button">Establecer tiempo</button>
         
@@ -98,11 +107,13 @@
       <button id="reset-combat-button" class="control-button" onclick="resetCombat()">Reiniciar Combate</button>
     </div>
     </div>
-  </div>
+
 
       <div class="tablet">
+        <div class="button-star">
         <button class="control-button control-button-star" id="start-button" onclick="toggleTimer()">Iniciar/Parar Tiempo</button>
-        <div class="button-wrapper">
+      </div>
+      <div class="button-wrapper">
         <button class="control-button control-button-blue">Advertencia Azul</button>
         <button class="control-button control-button-red">Advertencia Rojo</button>
       </div>
@@ -111,6 +122,30 @@
         <button class="control-button control-button-red" onclick="adjustDirectScore('red', -1)"><b>-1</b> Rojo</button>
       </div>     
     </div>
+
+
+    <div class="tablet-judge">
+    <div class="bottom-section">
+      <div class="judges-results">
+        <div class="judge" id="judge1">
+          <h4>Juez 1</h4>
+          <div class="bars" id="judge1-bars"></div>
+        </div>
+        <div class="judge" id="judge2">
+          <h4>Juez 2</h4>
+          <div class="bars" id="judge2-bars"></div>
+        </div>
+        <div class="judge" id="judge3">
+          <h4>Juez 3</h4>
+          <div class="bars" id="judge3-bars"></div>
+        </div>
+        <div class="judge" id="judge4">
+          <h4>Juez 4</h4>
+          <div class="bars" id="judge4-bars"></div>
+        </div>
+      </div>
+    </div>
+  </div>
    
     </section>
     
