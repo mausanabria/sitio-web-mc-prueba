@@ -415,7 +415,7 @@ function resetCombat() {
 // Nueva función: Actualizar las barras en la sección Tablet
 function updateTabletJudgeScores() {
   judgesScores.forEach((score, index) => {
-    const barsContainer = document.querySelector(`.tablet-judge #judge${index + 1}-bars`);
+    const barsContainer = document.querySelector(`.tablet #judge${index + 1}-bars`);
     if (barsContainer) {
       barsContainer.innerHTML = ""; // Limpia el contenido anterior
 

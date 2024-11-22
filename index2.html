@@ -22,15 +22,14 @@
     </div>
 
     <section class="display-section">
-      
+    
       <div class="tv">
         <div class="logo">
           <img src="martiall.jpeg" alt="Logo">
+          <div class="winner-message"></div>
         </div>
-
-        <div class="winner-message"></div>
-        
         <div class="top-section">
+          
           <div class="scoreboard">
             <div class="competitor blue">
               <h2 class="name">Competidor Azul</h2>
@@ -49,8 +48,13 @@
               </div>
             </div>
           </div>
-        </div>
         
+        </div>
+       
+        
+     
+       
+
         <div class="tv-container">
           
           <!-- Parte negra del televisor -->
@@ -85,7 +89,7 @@
         <!-- Tablet -->
         
     <div class="titulo-seccion">
-      <h3>Vista Notbook -Operador/Jefe de Mesa</h3>
+      <h3>Vista Notebook -Operador/Jefe de Mesa</h3>
     </div>  
 
     <section class="tablet-section">
@@ -95,7 +99,7 @@
         <button onclick="setCustomTime()" id="set-time-button">Establecer tiempo</button>
         
         <!-- Entradas para minutos y segundos -->
-        <div class="time-inputs">
+        <div class="control-button time-inputs">
         <input type="number" id="input-minutes" placeholder="Minutos" min="0" />
         <input type="number" id="input-seconds" placeholder="Segundos" min="0" max="59" />
       </div>
@@ -114,8 +118,8 @@
         <button class="control-button control-button-star" id="start-button" onclick="toggleTimer()">Iniciar/Parar Tiempo</button>
       </div>
       <div class="button-wrapper">
-        <button class="control-button control-button-blue">Advertencia Azul</button>
-        <button class="control-button control-button-red">Advertencia Rojo</button>
+        <button class="control-button control-button-blue wrapper-blue">Advertencia Azul</button>
+        <button class="control-button control-button-red wrapper-red">Advertencia Rojo</button>
       </div>
       <div class="button-point">
         <button class="control-button control-button-blue" onclick="adjustDirectScore('blue', -1)"><b>-1</b> Azul</button>
@@ -124,7 +128,7 @@
     </div>
 
 
-    <div class="tablet-judge">
+    <div class="tablet">
     <div class="bottom-section">
       <div class="judges-results">
         <div class="judge" id="judge1">

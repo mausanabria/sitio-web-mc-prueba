@@ -1,6 +1,6 @@
 /* General */
 body {
-  margin: 0;
+
   font-family: sans-serif;
   background-color: black;
   color: white;
@@ -23,12 +23,13 @@ header h2 {
   font-weight: 900;
   animation: expandirContraer 3s infinite ease-in-out; /* 3 segundos, se repite indefinidamente, con transición suave */
   }
+
   @keyframes expandirContraer {
     0%, 100% {
       transform: scale(1); /* Tamaño normal */
     }
     50% {
-      transform: scale(1.15); /* Expansión al 120% */
+      transform: scale(1.1); /* Expansión al 120% */
     }
   }
 
@@ -40,7 +41,6 @@ header h2 {
 
   .titulo-seccion {
     width: 100%; /* Asegura que el contenedor del título ocupe todo el ancho de la sección */
-    margin-bottom: 20px; /* Espaciado debajo del título para separar del resto del contenido */
     text-align: center; /* Asegura que el texto del título se alinee en el centro */
   }
 
@@ -48,53 +48,51 @@ header h2 {
 .display-section {
   display: flex;
   justify-content: center;
-  margin: 20px 0;
-  
+  align-content: center;
 }
 
 .tv {
-  position: relative; /* Establece un contexto para posicionar elementos hijos */
-  width: 1000px;
-  height: 700px;
+  position: relative;
+  width: auto;
+  height: auto;
   background-color: #000;
   border-radius: 20px;
-  flex-direction: column;
-  justify-content: space-between;
   border: 5px solid white;
-  overflow: hidden; /* Asegura que el contenido no se salga de los bordes */
+
+}
+
+.top-section {
+  align-items: center;
+  justify-items : center;
+  width: 100%;
+  height: 50%; 
+  flex-wrap: wrap;
 }
 
 .logo {
-  position: absolute; /* Fija el logo dentro de la TV */
-  top: 36%; /* Ajusta su posición vertical */
+  position: absolute; /* Centrada respecto al contenedor */
+  top: 52%; /* Centra verticalmente */
   left: 50%; /* Centra horizontalmente */
-  transform: translateX(-50%); /* Centra el logo basado en su ancho */
+  transform: translate(-50%, -50%); /* Ajusta el punto de referencia */
   width: 150px; /* Tamaño ajustado del logo */
   z-index: 10; /* Asegura que esté por encima del fondo */
+
 }
 
 .logo img {
 
   width: 160px; /* Reduce el tamaño del logo */
-  left: 50px; /* Ajusta la posición del logo */
-  border-radius: 10px;
+  border-radius: 15px;
 
 }
-.top-section {
-  display: flex;
-  width: 100%;
-  height: 50%; 
-}
+
 
 .scoreboard {
   display:flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: center;
+}
 
-}
-.name{
-  flex-direction: column; 
-}
 
 .score{
   font-size: 160px;
@@ -106,8 +104,6 @@ header h2 {
 }
 
 .competitor {
-  flex: 1;
-  text-align: center;
   font-size: 25px;
 
 }
@@ -118,7 +114,6 @@ header h2 {
   border-radius: 20px;
   display: flex;
   flex-direction: column; /* Apila el nombre y el puntaje verticalmente */
-  justify-content: center; /* Centra verticalmente */
   align-items: center; /* Centra horizontalmente */
   width: 50%;
   height: 100%;
@@ -130,59 +125,61 @@ header h2 {
   border-radius: 20px;
   display: flex;
   flex-direction: column; /* Apila el nombre y el puntaje verticalmente */
-  justify-content: center; /* Centra verticalmente */
   align-items: center; /* Centra horizontalmente */
   width: 50%;
   height: 100%;
-
 }
+
+.info {
+  font-size: 20px;
+  color: white; /* Asegura que el texto sea visible */
+}
+
 
 .timer {
   color: rgb(255, 140, 0);
-  font-size: 80px;
+  font-size: 70px;
   font-weight: bold;
-  margin-top: 130px;
+  margin-top: 20%;
+
 }
 
-.tv-container{
-  display: flex;
-  width: 100%;
-  height: 50%;
-  align-items: center;
-  justify-content: center;
+h4{
+  margin-top: 3px;
+  margin-bottom: 0;
 }
-
 
 .judges-results {
   z-index: 1;
   display: flex;
   flex-direction: row; /* Organiza los elementos en filas */
   justify-content: center;
-  gap: 15px;
-  margin-bottom: 20px;
+  gap: 5px;
 }
 
 .judge {
   font-size: 30px;
   background-color: black;
-  margin:  0;
   border-radius: 5px;
   border: 5px solid white; /* Agrega un borde blanco de 50px */
-  width: 220px;
-  height: 150px;
+  width: 200px;
+  height: 75px;
+  display: flex;
+  flex-direction: column;
 }
 
 .bars {
   display: flex;
   gap: 2px;
-  margin: 5px;
-  margin-bottom: 20px;
+  margin-top: 3px;
+  margin-left: 3px;
+  margin-right: 3px;
+
 }
 
 .bar {
   width: 15px;
   height: 25px;
-  margin-bottom: 20px;
 }
 
 .bar.blue {
@@ -194,32 +191,24 @@ header h2 {
 }
 
 .winner-message {
-  position: absolute; /* Coloca el texto sobre el contenido de la TV */
-  top: 55%; /* Ajusta la posición vertical debajo del logo */
+  position: absolute; /* Centrada respecto al contenedor */
+  top: 65%; /* Centra verticalmente */
   left: 50%; /* Centra horizontalmente */
-  transform: translateX(-50%); /* Centra el texto basado en su ancho */
-  font-size: 60px; /* Ajusta el tamaño del texto */
+  transform: translate(-50%, -50%); /* Ajusta el punto de referencia */
+  font-size: 60px;
   font-weight: bold;
   color: white; /* Color predeterminado, cambiará dinámicamente */
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Añade sombra para visibilidad */
   z-index: 5; /* Asegura que esté encima de otros elementos en la TV */
-  text-align: center; /* Centra el texto */
+  width: 100%;
 }
 
-.info {
-  position: relative;
-  bottom: 10px; /* Ajusta la distancia desde la parte inferior */
-  left: 10px; /* Ajusta la distancia desde el lado izquierdo */
-  font-size: 20px;
-  color: white; /* Asegura que el texto sea visible */
-}
 
 
 
 
 /* Tablet */
 .tablet-section {
-
   display: flex;
   align-content: center;
   justify-content: center;
@@ -231,45 +220,22 @@ header h2 {
 
 }
 .tablet {
-  margin: 0 60px; /* Espaciado horizontal (izquierda y derecha) */
-}
-
-.tablet, .tablet-judge {
-  padding: 20px;
+  margin: 15px 60px; /* Espaciado horizontal (izquierda y derecha) */
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 250px; /* Ajusta la altura para que los botones se distribuyan correctamente */
-
+  gap: 10px;
+  align-content: center;
+  width: auto;
+  height: auto;
 }
-
-.tablet-judge {
-  margin: 0; /* Elimina márgenes adicionales */
-  height: 150px;
-
-}
-
-
 
 /* Estilo común para todos los botones */
 button tablet-section{
   transition: background-color 0.3s ease;
-  padding: 10px 20px;
   font-size: 22px;
-  border: none;
   cursor: pointer;
   border-radius: 5px;
-}
-/* Botón habilitado: color verde */
-button.enabled {
-  background-color: green;
-  color: white;
-}
-
-/* Botón al pasar el mouse (hover): color celeste */
-button.enabled:hover {
-  background-color: #00bcd4;
 }
 
 /* Botón deshabilitado: color gris */
@@ -278,13 +244,7 @@ button.disabled {
   cursor: not-allowed;
 }
 
-/* Opcional: si deseas un efecto cuando el botón está en estado normal (por defecto) */
-button tablet-section {
-  background-color: #4caf50; /* Color verde predeterminado */
-}
-
 .control-button-start {
-
   font-size: 20px;
   background-color: #ffffff;
   border: none;
@@ -293,7 +253,6 @@ button tablet-section {
   
 }
 
-
 .control-button {
   font-size: 20px;
   padding: 10px 20px;
@@ -301,22 +260,18 @@ button tablet-section {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+
 }
 
 /* Sección para los botones de advertencia (azul y rojo) */
 .button-wrapper {
-  display: flex;
-  justify-content: space-between;
   width: 100%;
-  padding-top: 15px;
-  margin: auto 10px; /* Para que los botones queden al fondo de la tablet */
+  margin: auto; /* Para que los botones queden al fondo de la tablet */
 }
 
 .button-point {
-  display: flex;
-  justify-content: space-between;
   width: 100%;
-  margin: auto 10px;
+  margin: auto;
 }
 
 .control-button-blue:hover {
@@ -329,7 +284,6 @@ button tablet-section {
 
 .show-results-button {
   font-size: 22px;
-  display: block;
   margin: 10px auto;
   padding: 10px 20px;
   background-color: #28a745; /* Verde */
@@ -347,6 +301,16 @@ button tablet-section {
   background-color: #21a1f1;
 }
 
+#reset-combat-button:hover:enabled {
+  background-color: #21a1f1;
+}
+
+#start-button:hover:enabled {
+  background-color: #21a1f1;
+}
+
+
+
 .show-results-button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
@@ -355,19 +319,12 @@ button tablet-section {
 
 /* Estilo general para los contenedores de los inputs y el botón */
 .timer-inputs {
-  display: flex;
+
   flex-direction: column; /* Cambia la dirección a columna */
   justify-content: center;
   align-items: center;
   gap: 10px; /* Espacio entre los elementos */
-  margin-top: 0;
-}
 
-/* Contenedor de los inputs para alinearlos en fila */
-.time-inputs {
-  display: flex; /* Flexbox para que estén en fila */
-  gap: 10px; /* Espacio entre los inputs */
-  align-items: center; /* Alinear los inputs verticalmente */
 }
 
 /* Estilo para los inputs de minutos y segundos */
@@ -416,28 +373,26 @@ button tablet-section {
 }
 
 
+
+
+
 /* Mobile */
 .mobile-section {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  flex-wrap: wrap;
   width: 100%; /* Para que ocupe todo el ancho disponible */
 }
 
 .mobile {
-  width: 400px;
-  height: 200px;
+  width: auto;
+  height: auto;
   background-color: #444;
   border-radius: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
   color: white;
   font-size: 14px;
   cursor: pointer;
-  overflow: hidden;
-  padding: 5px;
+  padding: 10px;
   border-width: 10px;
   border-style: double;
   border-color: gray;
@@ -452,13 +407,11 @@ button tablet-section {
 .judge-half {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
+
 
 .button-group {
   display: flex; /* Activa flexbox */
-
-
 }
 
 .button-group-more,
@@ -466,6 +419,7 @@ button tablet-section {
   display: flex; /* Activa flexbox para los botones dentro de cada grupo */
   flex-direction: column; /* Acomoda los botones en una columna */
   gap: 5px; /* Agrega espacio entre los botones */
+  padding: 6px 20px;
 }
 
 
@@ -474,19 +428,19 @@ button tablet-section {
   display: flex;
   width: 100%;
   justify-content: space-between; /* Separa los contenedores de los botones */
-  gap: 5px;
+  gap: 45px;
 }
 
 /* Botones de acción */
 .button-group button {
   margin: 3px;
-  padding: 6px 10px;
-  font-size: 18px;
+  font-size: 20px;
   border: none;
   border-radius: 5px;
   color: white;
   cursor: pointer;
   color: black;
+  font-weight: 900;
   
 }
 
@@ -511,3 +465,157 @@ button tablet-section {
 .red:hover {
   background-color: #660000;
 }
+
+
+
+
+
+
+@media (max-width: 768px) {
+  /* Ajustes generales */
+  body {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  header h2 {
+    font-size: 30px;
+
+  }
+
+    /* Ajustes TV */
+
+
+.display-section {
+flex-wrap: wrap;
+}
+
+  .tv {
+    width: 95%;
+    height: 100%;
+  }
+
+  .competitor {
+    width: 100%; /* Ocupa todo el ancho */
+    font-size: 16px;
+  }
+
+  .name{
+    margin: 0 5px;
+  }
+
+  .info {
+font-size: 13px;
+}
+
+.logo{
+  top: 26%; /* Centra verticalmente */
+}
+
+
+  .logo img {
+    width: 75px; /* Reduce el tamaño del logo */
+    border-radius: 15px;
+
+  }
+
+  .winner-message {    
+    top: 35%; /* Centra verticalmente */
+    font-size: 40px;
+  }
+
+  .timer{
+    font-size: 40px;
+margin-top: 30%;
+  }
+  .score {
+    font-size: 40px; /* Reducir tamaño del puntaje */
+  }
+
+.bottom-section{
+
+  justify-content: center;
+
+}
+
+.judges-results{
+flex-direction: column; /* Cambiar a orientación vertical */
+}
+
+
+.judges-results h4{
+  font-size: 20px;
+  margin-top: 5px;
+  
+}
+
+.judge{
+  width: 100%;
+
+
+}
+
+
+
+    /* Ajustes TABLET */
+  .tablet-section {
+    width: 100%; /* Ocupa todo el ancho */
+    margin: 10px 0; /* Agregar espacio entre las tabletas */
+  }
+
+  .tablet {
+    width: 90%;
+    margin: auto; /* Centrarlas verticalmente */
+    padding: 10px;
+    border: 2px solid white;
+    gap: 5px;
+  }
+
+  .control-button-blue {
+    background-color: rgb(46, 76, 210);
+  }
+  
+  .control-button-red {
+    background-color: red;
+  }
+
+
+.wrapper-red  ,.wrapper-blue {
+  font-size: 15px;
+}
+
+      /* Ajustes MOBILE */
+
+  .mobile-section {
+    flex-direction: column; /* Cambiar a orientación vertical */
+    align-items: center; /* Centrar elementos */
+
+  }
+
+  .mobile {
+    width: 90%; /* Ocupa casi todo el ancho */
+    height: 100%; /* Ajusta la altura según el contenido */
+  }
+
+
+
+  .buttons-container {
+    flex-direction: column; /* Cambiar orientación a vertical */
+    gap: 5px; /* Espacio entre los botones */
+    align-items: center;
+    justify-content: center;
+  }
+}
+.button-group button {
+  padding: 6px 10px;
+}
+
+
+  .judge-half {
+    display: flex;
+    flex-direction: none;
+
+  }
