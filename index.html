@@ -6,34 +6,24 @@
     <title>Martial Challenge</title>
     <link rel="stylesheet" href="style.css"> <!-- Enlace al archivo CSS -->
     <link rel="stylesheet" href="fonts.css"> <!-- Enlace al archivo font -->
+
 </head>
 
 <body>
 
-    <div class="logomobile">
-        <img src="martial.jpeg" alt="Logo">
-    </div>
+
 <!-- PARTE 1-->
     <header>
-        <div class="logo">
-            <img src="martial.jpeg" alt="Logo">
-        </div>
+
         <button class="menu-toggle" aria-label="Abrir menú">&#9776;</button> <!-- Ícono de menú -->
-        <nav class="navbar">
-            <ul>
-            <li><a href="#Inicio">Inicio</a></li>
-            <li><a href="#Torneos">Torneos</a></li>
-            <li><a href="#Proximos_eventos">Proximos Eventos</a></li>
-            <li><a href="#Nosotros">Nosotros</a></li>
-            <li><a href="#Servicios">Servicios</a></li>
-            <li><a href="index2.html">Simulador</a></li>
-            <li><a href="#Contacto">Contacto</a></li>
-            </ul>
-        </nav>
-        <section id="Inicio"></section>
+
         <div class="logo">
             <img src="martial.jpeg" alt="Logo"> <!-- Aquí puedes cambiar por tu imagen -->
         </div>
+
+        
+        <section id="Inicio">
+
         <nav class="navbar">
             <ul>
                 <li><a href="#Inicio">Inicio</a></li>
@@ -45,7 +35,12 @@
                 <li><a href="#Contacto">Contacto</a></li>
             </ul>
         </nav>
+    </section>
     </header>
+
+    <div class="logo-mobile">
+        <img src="martial.jpeg" alt="Logo"> <!-- Aquí puedes cambiar por tu imagen -->
+    </div>
 <!-- Sección del carrusel en miniatura -->
     <section class="servicios_carrusel_seccion_completa">
             <div class="imagen_principal_carrusel">
@@ -171,8 +166,9 @@
         <h2 class="subtitulo">Quienes Somos</h2>
         <p class="quienes-somos">
         Martial Challenge es una herramienta de software orientada a brindar apoyo en eventos deportivos masivos, como torneos, exámenes, cursos, etc. Brindando al usuario una experiencia agradable, dinámica e intuitiva. El principal beneficio es la automatización del proceso del evento y la eficiencia de los tiempos, tanto para los organizadores, colaboradores, competidores, alumnos, acompañantes y público en general.
+        <br>Contamos con una amplia experiencia en Gestion de Torneos
         </p>
-        <p class="experiencia">Contamos con una amplia experiencia en Gestion de Torneos</p>
+        
         <div class="secciones-container">
             <div class="seccion">
                 <div class="tarjeta">
@@ -208,61 +204,69 @@
     </section>
 
 
+    <!-- POP-UP-->
+    <div class="overlay"></div>
+    <div class="popup">
+        <h2>¡Prueba nuestros Simuladores Educativos Online!</h2>
+        <button id="cerrar-popup">Cerrar</button>
+    </div>
+
+    <script src="script.js"></script> <!-- Archivo JS externo ->
+
+
 <!-- PARTE 4-->
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const menuToggle = document.querySelector(".menu-toggle");
-      const navbar = document.querySelector(".navbar");
-  
-      menuToggle.addEventListener("click", () => {
+        const menuToggle = document.querySelector(".menu-toggle");
+        const navbar = document.querySelector(".navbar");
+        menuToggle.addEventListener("click", () => {
         navbar.classList.toggle("active"); // Activa o desactiva la clase 'active'
-      });
+        });
     });
-  </script>
+</script>
 
 <script>
     // Función para observar la visibilidad de las tarjetas
     document.addEventListener("DOMContentLoaded", () => {
-      const tarjetas = document.querySelectorAll(".tarjeta");
-  
-      const observer = new IntersectionObserver(
+        const tarjetas = document.querySelectorAll(".tarjeta");
+        const observer = new IntersectionObserver(
         (entries) => {
-          entries.forEach((entry) => {
+            entries.forEach((entry) => {
             if (entry.isIntersecting) {
               entry.target.classList.add("volteada"); // Voltea la tarjeta al entrar en pantalla
             } else {
               entry.target.classList.remove("volteada"); // Restaura al salir de pantalla
             }
-          });
+            });
         },
         { threshold: 0.5 } // Al menos el 50% de la tarjeta debe ser visible
-      );
-  
+        );
+
       // Aplica el observer a todas las tarjetas
-      tarjetas.forEach((tarjeta) => observer.observe(tarjeta));
+        tarjetas.forEach((tarjeta) => observer.observe(tarjeta));
     });
-  </script>
+</script>
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const images = document.querySelectorAll(".image-container");
-  
-      const observer = new IntersectionObserver(
+        const images = document.querySelectorAll(".image-container");
+        const observer = new IntersectionObserver(
         (entries) => {
-          entries.forEach((entry) => {
+            entries.forEach((entry) => {
             if (entry.isIntersecting) {
               entry.target.classList.add("visible"); // Activa el efecto al entrar en pantalla
             } else {
               entry.target.classList.remove("visible"); // Desactiva el efecto al salir de pantalla
             }
-          });
+            });
         },
         { threshold: 0.5 } // Al menos el 50% de la imagen debe ser visible
-      );
-  
+        );
       // Aplica el observer a cada contenedor de imágenes
-      images.forEach((image) => observer.observe(image));
+        images.forEach((image) => observer.observe(image));
     });
-  </script>
+</script>
+
 </body>
+
 </html>

@@ -55,14 +55,17 @@ header {
 header .logo {
   position: fixed; /* Hace que el logo sea fijo */
   top: 10px; /* Ajusta la distancia desde la parte superior de la página */
-  left: 200px; /* Ajusta la posición horizontal del logo */
+left: 10%;
   z-index: 1001; /* Asegura que el logo esté por encima de la barra */
 }
 
 header .logo img {
   width: 300px;
-  padding-left: 100px;
+}
 
+
+.logo-mobile{
+  display: none;
 }
 /*--------------barra nueva-----------------*/
 
@@ -74,11 +77,11 @@ header .logo img {
   background-color: black; /* Fondo negro */
   color: white; /* Texto en blanco */
   z-index: 1000; /* Asegura que la barra esté por encima de otros elementos */
-  padding-right: 100px;
+  padding-right: 10%;
   box-sizing: border-box; /* Para incluir el padding dentro del ancho total */
   display: flex;
-  justify-content: flex-end; /* Alinea los elementos dentro de la barra de navegación a la derecha */
-  padding: 18px 0; 
+  justify-content: end; /* Alinea los elementos dentro de la barra de navegación a la derecha */
+
 
 }
 
@@ -86,10 +89,8 @@ header .logo img {
 header .navbar ul {
   list-style: none;
   display: flex;
-  gap: 18px;
-  justify-content:end; /* Alinea los enlaces al centro*/
-  align-items: center;  /* Centra verticalmente todos los elementos dentro del header */
-  padding-right: 230px;
+  gap: 0;
+  align-items: end;  /* Centra verticalmente todos los elementos dentro del header */
 }
 
 header .navbar ul li {
@@ -374,6 +375,11 @@ section.imagensobretexto {
   width: 80%; /* Ocupa el 80% del ancho de la página */
 }
 
+.quienes-somos{
+  display: flex;
+  margin: auto; /* Centra el párrafo dentro de su contenedor */
+}
+
 
 
 p.quienes-somos {
@@ -381,14 +387,13 @@ p.quienes-somos {
   font-family: montserrat;
   font-size: 30px;
   font-weight:bold;
-  width: 60%; /* Limita el ancho del párrafo al 70% del ancho total de la página */
-  margin: 0 auto; /* Centra el párrafo dentro de su contenedor */
+  width: 80%; /* Limita el ancho del párrafo al 70% del ancho total de la página */
   line-height: 1.6; /* Ajusta la altura de línea para mejorar la legibilidad */
   text-align: center;
-  display: flex;
+
   justify-content: center; /* Centra horizontalmente */
   align-items: center; /* Centra verticalmente */
-  height: 30vh; /* Altura del 100% de la ventana para centrar verticalmente */
+
   padding-bottom: 40px;
 }
 
@@ -519,6 +524,51 @@ p.experiencia {
 
 
 
+/* Estilo del pop-up */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  z-index: 1000;
+  display: none; /* Oculto por defecto */
+  width: 300px;
+}
+
+/* Fondo de la superposición */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none; /* Oculto por defecto */
+}
+
+/* Botón para cerrar */
+.popup button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.popup button:hover {
+  background-color: #0056b3;
+}
+
+
+
+
 
 
 
@@ -530,11 +580,28 @@ p.experiencia {
 
 /* Estilos responsivos */
 @media (max-width: 1199px) { /* Para pantallas chicas */
-  .logo img {
-    width: 100px; /* Reduce el tamaño del logo */
-    left: 50px; /* Ajusta la posición del logo */
-  }
+  
 
+
+  body{
+    margin-top: 0;    
+      }
+    
+      .logo{
+    display: none;
+    }
+    
+    .logo-mobile{
+      display: flex;
+      justify-content: center;
+    }
+    
+    .logo-mobile img {
+      width: 70%;
+      margin-bottom: 10px;
+    
+    
+    }
   .navbar {
     display: none; /* Oculta el menú en pantallas más pequeñas */
   }
@@ -573,15 +640,19 @@ p.experiencia {
 
 /* Pantallas de 1200px o más */
 @media (min-width: 1200px) {
+
+  header .logo {
+    left: 5%;
+  }
+
   .navbar {
     width: 100%; /* La barra de navegación ocupa todo el ancho */
-    max-width: 100%; /* Asegura que no se desborde */
+
     position: fixed; /* Fija la barra de navegación */
     top: 0; /* Alinea la barra en la parte superior de la ventana */
     background-color: black; /* Fondo negro */
     color: white; /* Texto en blanco */
     z-index: 1000; /* Asegura que la barra esté por encima de otros elementos */
-    padding-right: 100px;
     box-sizing: border-box; /* Para incluir el padding dentro del ancho total */
     display: flex;
     justify-content: flex-end; /* Alinea los elementos dentro de la barra de navegación a la derecha */
@@ -594,10 +665,9 @@ p.experiencia {
     padding: 0; /* Elimina el padding adicional */
     list-style: none;
     display: flex;
-    gap: 20px;
+
     justify-content:end; /* Alinea los enlaces al centro*/
     align-items: center;  /* Centra verticalmente todos los elementos dentro del header */
-    padding-right: 200px;
   }
   
   .navbar ul li a {
@@ -619,32 +689,31 @@ p.experiencia {
   .menu-toggle {
     display: none; /* Oculta el botón del menú desplegable */
   }
-
-  .logomobile{
-
-  display: none;
-  }
 }
 
 
 
 @media (max-width: 768px) { /* Para tablets y móviles */
 
-  header .logo {
-  display: none;
+  body{
+margin-top: 0;    
   }
 
-  .logomobile img {
-    position: absolute;
-    width:200px;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    display: block;
-    top: 10px;
-    padding-left: 50px;
+  .logo{
+display: none;
+}
 
-  }
+.logo-mobile{
+  display: flex;
+  justify-content: center;
+}
+
+.logo-mobile img {
+  width: 60%;
+  margin-bottom: 10px;
+
+
+}
 
   header .navbar ul {
     flex-direction: column; /* Muestra los enlaces en columna */
@@ -684,7 +753,7 @@ font-size: 1.1rem;
 
 
 
-  p.quienes-somos, p.experiencia {
+  p.quienes-somos {
     font-size: 18px; /* Reduce el tamaño del texto */
     width: 90%; /* Ajusta el ancho */
     margin-top: 80px;
@@ -757,7 +826,7 @@ font-size: 1.1rem;
     font-size: 20px; /* Ajusta el tamaño del subtítulo */
   }
 
-  p.quienes-somos, p.experiencia {
+  p.quienes-somos {
     font-size: 16px; /* Reduce el tamaño del texto */
   }
 }
