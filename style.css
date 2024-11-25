@@ -241,6 +241,7 @@ section.imagensobretexto {
   opacity: 1; /* Muestra el texto al pasar el cursor */
 }
 .textoservicio{
+  font-family: sans-serif;
   color: #fff; /* Color del texto */
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Sombra oscura */
   outline: none; /* Elimina cualquier contorno adicional */
@@ -361,7 +362,7 @@ section.imagensobretexto {
 
 .subtitulo {
   font-family: dancing;
-  font-size: 3rem;
+  font-size: 50px;
   font-weight:bold;
   color: black; /* Color del texto */
   background-color: white; /* Fondo blanco */
@@ -369,7 +370,7 @@ section.imagensobretexto {
   border-radius: 60px; /* Bordes redondeados */
   text-align: center; /* Centrar el texto */
   font-weight: bold; /* Negrita */
-  margin: 40px auto; /* Margen superior e inferior, centrado en la página */
+  margin: auto; /* Margen superior e inferior, centrado en la página */
   margin-top: 100px;
   margin-bottom: 100px;
   width: 80%; /* Ocupa el 80% del ancho de la página */
@@ -540,17 +541,6 @@ p.experiencia {
   width: 300px;
 }
 
-/* Fondo de la superposición */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-  display: none; /* Oculto por defecto */
-}
 
 /* Botón para cerrar */
 .popup button {
@@ -627,13 +617,14 @@ p.experiencia {
 
   .subtitulo {
     font-size: 30px; /* Reduce el tamaño del texto */
-    width: 90%; /* Ajusta el ancho del subtítulo *  
+    width: 90%; /* Ajusta el ancho del subtítulo */
   }
 
-  p.quienes-somos, p.experiencia {
+  p.quienes-somos {
     font-size: 20px; /* Reduce el tamaño de los párrafos */
     width: 80%; /* Ajusta el ancho del texto */
-    padding-bottom: 0dvh;
+    padding-bottom: 20px;
+
   }
 }
 
@@ -748,7 +739,11 @@ font-size: 1.1rem;
   .boton-simulacion{
     font-size: 1rem;
     width: 250px;  /* Tamaño fijo para los botones */
-    margin-top: 15px;
+    margin-top: 10px;
+  }
+
+  .botones-simulacion{
+    margin-top: 40px;
   }
 
 
@@ -806,7 +801,9 @@ font-size: 1.1rem;
     opacity: 1; /* Muestra el texto al entrar en pantalla */
   }
 
-
+  .textoservicio{
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 480px) { /* Para móviles pequeños */
@@ -824,6 +821,7 @@ font-size: 1.1rem;
 
   .subtitulo {
     font-size: 20px; /* Ajusta el tamaño del subtítulo */
+    align-items: center;
   }
 
   p.quienes-somos {

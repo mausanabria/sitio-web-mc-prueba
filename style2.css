@@ -44,6 +44,22 @@ header h2 {
     text-align: center; /* Asegura que el texto del título se alinee en el centro */
   }
 
+/* Estilos generales de la animación */
+.section-animate {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* Clase para las secciones que han entrado en la vista */
+.section-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+
 /* Televisor */
 .display-section {
   display: flex;
@@ -565,11 +581,12 @@ flex-direction: column; /* Cambiar a orientación vertical */
   .tablet-section {
     width: 100%; /* Ocupa todo el ancho */
     margin: 10px 0; /* Agregar espacio entre las tabletas */
+    
   }
 
   .tablet {
     width: 90%;
-    margin: auto; /* Centrarlas verticalmente */
+    margin: 10px auto; /* Centrarlas verticalmente */
     padding: 10px;
     border: 2px solid white;
     gap: 5px;
