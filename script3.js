@@ -182,3 +182,23 @@ function checkAllJudgesDecided() {
     showResultsButton.classList.add("disabled");
   }
 }
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll(".display-section, .tablet-section, .mobile-section"); // Seleccionamos todas las secciones
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("section-visible"); // Cuando entra en la vista, se agrega la clase para la animación
+      }
+    });
+  }, {
+    threshold: 0 // La sección debe empezar a ser visible (su borde superior) para que la animación se active
+  });
+
+  sections.forEach((section) => {
+    section.classList.add("section-animate"); // Aseguramos que las secciones tengan la clase de animación al cargar
+    observer.observe(section); // Observar cada sección
+  });
+});

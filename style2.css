@@ -33,6 +33,7 @@ header h2 {
     }
   }
 
+
   h3 {
     font-size: 25px;
     color: #61dafb;
@@ -48,7 +49,7 @@ header h2 {
 .section-animate {
   opacity: 0;
   transform: translateY(100px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
+  transition: opacity 1.5s ease-out, transform 2s ease-out;
 }
 
 /* Clase para las secciones que han entrado en la vista */
@@ -96,7 +97,6 @@ header h2 {
 }
 
 .logo img {
-
   width: 160px; /* Reduce el tamaño del logo */
   border-radius: 15px;
 
@@ -115,8 +115,6 @@ header h2 {
   text-align: center;
   display: flex;
   margin: 0;
-
-
 }
 
 .competitor {
@@ -208,7 +206,7 @@ h4{
 
 .winner-message {
   position: absolute; /* Centrada respecto al contenedor */
-  top: 65%; /* Centra verticalmente */
+  top: 67%; /* Centra verticalmente */
   left: 50%; /* Centra horizontalmente */
   transform: translate(-50%, -50%); /* Ajusta el punto de referencia */
   font-size: 60px;
@@ -488,6 +486,7 @@ button.disabled {
 
 
 
+
 @media (max-width: 768px) {
   /* Ajustes generales */
   body {
@@ -529,7 +528,7 @@ font-size: 13px;
 }
 
 .logo{
-  top: 26%; /* Centra verticalmente */
+  top: 30%; /* Centra verticalmente */
 }
 
 
@@ -540,7 +539,7 @@ font-size: 13px;
   }
 
   .winner-message {    
-    top: 35%; /* Centra verticalmente */
+    top: 40%; /* Centra verticalmente */
     font-size: 40px;
   }
 
@@ -549,7 +548,7 @@ font-size: 13px;
 margin-top: 30%;
   }
   .score {
-    font-size: 40px; /* Reducir tamaño del puntaje */
+    font-size: 70px; /* Reducir tamaño del puntaje */
   }
 
 .bottom-section{
