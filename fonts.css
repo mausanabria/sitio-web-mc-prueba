@@ -7,19 +7,26 @@
 
 @font-face {
     font-family:"monstserrat";
-    src: url("fontsmontserrat/Montserrat-Bold.ttf") format("truetype");
+    src: url("./fontsmontserrat/Montserrat-Bold.ttf") format("truetype");
     font-weight: 600;
 }
 
 @font-face {
     font-family:"monstserrat";
-    src: url("fontsmontserrat/Montserrat-ExtraBold.ttf") format("truetype");
+    src: url("./Montserrat-ExtraBold.ttf") format("truetype");
     font-weight: 900;
 }
 
 
 @font-face {
     font-family:"dancing";
-    src: url("fontdancing/DancingScript-Bold.ttf") format("truetype");
+    src: url("./DancingScript-Bold.ttf") format("truetype");
     font-weight: 900;
 }
+
+
+    @font-face {
+        font-family:"edo";
+        src: url("./edo.ttf") format("truetype");
+        font-weight: 900;
+    }
