@@ -1,14 +1,20 @@
 /* GENERAL INICIO */
 
+html{
+  overscroll-behavior: none;
+}
+
+
+
 /* Estilos generales */
 body {
+  overscroll-behavior: none;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: black;
+  background: black;
   margin-top: 120px;
   font-family: montserrat;
-  
 }
 html {
   scroll-padding-top: 150px; /* Ajusta este valor al alto de tu barra de navegación */
@@ -21,10 +27,7 @@ html {
   color: rgba(174, 172, 177, 0.485);
   text-align: center;
   padding-top: 20px;
-}
-
-.encabezado_pricipal{
-    animation: expandirContraer 3s infinite ease-in-out; /* 3 segundos, se repite indefinidamente, con transición suave */
+  animation: expandirContraer 3s infinite ease-in-out; /* 3 segundos, se repite indefinidamente, con transición suave */
   }
   
   @keyframes expandirContraer {
@@ -32,15 +35,14 @@ html {
       transform: scale(1); /* Tamaño normal */
     }
     50% {
-      transform: scale(1.1); /* Expansión al 120% */
+      transform: scale(1.1); /* Expansión al 110% */
     }
   }
 
 /* GENERAL FIN */
 
+
 /* PARTE 1 INICIO */
-
-
 
 /* Header */
 header {
@@ -51,13 +53,24 @@ header {
   color: white;
   width: auto;
 
+
 }
 header .logo {
   position: fixed; /* Hace que el logo sea fijo */
   top: 10px; /* Ajusta la distancia desde la parte superior de la página */
-left: 10%;
+  left: 10%;
   z-index: 1001; /* Asegura que el logo esté por encima de la barra */
+
+
 }
+
+.logo {
+  background-image: url('martial.jpeg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  mix-blend-mode: screen; /* Esto eliminará las áreas negras, manteniendo las letras blancas */
+}
+
 
 header .logo img {
   width: 300px;
@@ -67,14 +80,13 @@ header .logo img {
 .logo-mobile{
   display: none;
 }
-/*--------------barra nueva-----------------*/
 
 .navbar {
   width: 100%; /* La barra de navegación ocupa todo el ancho */
   max-width: 100%; /* Asegura que no se desborde */
   position: fixed; /* Fija la barra de navegación */
   top: 0; /* Alinea la barra en la parte superior de la ventana */
-  background-color: black; /* Fondo negro */
+  background: linear-gradient(135deg, #141415, #40414a); /* Fondo degradado similar al footer */
   color: white; /* Texto en blanco */
   z-index: 1000; /* Asegura que la barra esté por encima de otros elementos */
   padding-right: 10%;
@@ -454,7 +466,7 @@ p.experiencia {
   justify-content: center;
   align-items: center;
   padding: 20px;
-  font-size: 20px;
+
   color: #fff;
   text-align: center;
   box-sizing: border-box;
@@ -463,18 +475,18 @@ p.experiencia {
 
 /* Estilos del frente */
 .seccion-front {
-  background: linear-gradient(200deg, #555aca, #8f94fb); /* Degradado en diagonal */
-  font-size: 30px;
-  font-family: sans-serif;
-  line-height: 1.5;
+  background: linear-gradient(200deg, #1e1e1e, #3c3c3c); /* Degradado en tonos negros y grises */
+  font-size: 28px;
+  font-family: 'Helvetica Neue', sans-serif; /* Tipografía moderna y sobria */
+  line-height: 1.6;
 }
 
 /* Estilos del reverso */
 .seccion-back {
-  background: linear-gradient(300deg, #3610de, #565ad3); /* Otro degradado en diagonal */
+  background: linear-gradient(300deg, #2b2b2b, #4d4d4d); /* Degradado más tenue para el reverso */
   font-size: 25px;
   transform: rotateY(180deg); /* Aplica la rotación al reverso para el efecto de flip */
-  font-family: sans-serif;
+  font-family: 'Helvetica Neue', sans-serif;
 }
 
 
@@ -820,11 +832,141 @@ font-size: 1.1rem;
   }
 
   .subtitulo {
-    font-size: 20px; /* Ajusta el tamaño del subtítulo */
+    font-size:  20px; /* Ajusta el tamaño del subtítulo */
     align-items: center;
   }
 
   p.quienes-somos {
     font-size: 16px; /* Reduce el tamaño del texto */
   }
+}
+
+
+
+/* Sección de Contacto */
+#Contacto {
+  color: #2c3e50;
+  padding: 40px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+
+}
+
+#Contacto h2 {
+  font-size: 30px;
+  font-family: edo;
+  font-weight: 700;
+  color:white;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+  top: 0;
+}
+
+.formulario-contacto {
+  display: flex;
+  flex-wrap: wrap; /* Permite que los cuadros se ajusten en pantallas pequeñas */
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+.formulario-contacto label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color:white;
+  font-family: edo;
+}
+
+.formulario-contacto input,
+.formulario-contacto textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dfe4ea;
+  border-radius: 5px;
+  background-color: #ffffff; /* Fondo blanco */
+  color: #2c3e50;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+}
+
+.formulario-contacto input:focus,
+.formulario-contacto textarea:focus {
+  border-color: #f39c12; /* Resaltar el borde al hacer foco */
+  outline: none;
+}
+
+.formulario-contacto .input-group {
+  width: calc(50% - 10px); /* Cada cuadro ocupa la mitad del ancho */
+  box-sizing: border-box;
+}
+
+.formulario-contacto .input-group.full-width {
+  width: 100%; /* El cuadro del mensaje ocupa todo el ancho */
+}
+
+.formulario-contacto button {
+  background-color: #f39c12; /* Color dorado para el botón */
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-top: 10px;
+}
+
+.formulario-contacto button:hover {
+  background-color: #e67e22; /* Cambio de color al pasar el ratón */
+}
+
+@media (max-width: 768px) {
+  .formulario-contacto .input-group {
+    width: 100%; /* Los cuadros ocupan todo el ancho en pantallas pequeñas */
+  }
+
+  #contacto h2 {
+    font-size: 24px;
+  }
+
+  .formulario-contacto button {
+    font-size: 16px;
+  }
+}
+
+
+footer {
+  background: linear-gradient(135deg, #141415, #40414a); /* Fondo degradado similar al footer */
+  color: white;
+  text-align: center;
+  position: relative;
+  top: 20px;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-title {
+  font-size: 60px;
+  font-weight: bold;
+  font-family: edo;
+color: white;
+margin: 0;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }
