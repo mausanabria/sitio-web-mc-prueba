@@ -52,7 +52,7 @@ menuLinks.forEach((link) => {
                     }
                 });
             },
-            { threshold: 0.5 } // Al menos el 50% de la tarjeta debe ser visible
+            { threshold: 1 } // Al menos el 50% de la tarjeta debe ser visible
         );
 
         tarjetas.forEach((tarjeta) => observer.observe(tarjeta));

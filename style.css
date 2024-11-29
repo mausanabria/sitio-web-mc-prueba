@@ -326,14 +326,14 @@ section.imagensobretexto {
 /* Contenedor del carrousel */
 .carousel-container {
   width: 100%;
-  margin: 20px 0;
+  margin: auto;
   overflow: hidden;
   position: relative;
   padding: 50px 0;
 }
 
 /* Contenedor de las imágenes */
-.carousel-images {
+.carousel-images .torneoimagen{
   display: flex;
   transition: transform 0.5s ease-in-out;
   transform-origin: center center;
@@ -566,6 +566,123 @@ p.experiencia {
 
 .popup button:hover {
   background-color: #0056b3;
+}
+
+
+
+
+/* Sección de Contacto */
+#Contacto {
+  color: #2c3e50;
+  padding: 40px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  box-sizing: border-box;
+
+}
+
+#Contacto h2 {
+  font-size: 30px;
+  font-family: edo;
+  font-weight: 700;
+  color:white;
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+  top: 0;
+}
+
+.formulario-contacto {
+  display: flex;
+  flex-wrap: wrap; /* Permite que los cuadros se ajusten en pantallas pequeñas */
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+  max-width: 800px;
+}
+
+.formulario-contacto label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color:white;
+  font-family: edo;
+}
+
+.formulario-contacto input,
+.formulario-contacto textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #dfe4ea;
+  border-radius: 5px;
+  background-color: #ffffff; /* Fondo blanco */
+  color: #2c3e50;
+  font-size: 16px;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+}
+
+.formulario-contacto input:focus,
+.formulario-contacto textarea:focus {
+  border-color: #f39c12; /* Resaltar el borde al hacer foco */
+  outline: none;
+}
+
+.formulario-contacto .input-group {
+  width: calc(50% - 10px); /* Cada cuadro ocupa la mitad del ancho */
+  box-sizing: border-box;
+}
+
+.formulario-contacto .input-group.full-width {
+  width: 100%; /* El cuadro del mensaje ocupa todo el ancho */
+}
+
+.formulario-contacto button {
+  background-color: #f39c12; /* Color dorado para el botón */
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  margin-top: 10px;
+}
+
+.formulario-contacto button:hover {
+  background-color: #e67e22; /* Cambio de color al pasar el ratón */
+}
+
+
+footer {
+  background: linear-gradient(135deg, #141415, #40414a); /* Fondo degradado similar al footer */
+  color: white;
+  text-align: center;
+  position: relative;
+  top: 20px;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer-title {
+  font-size: 60px;
+  font-weight: bold;
+  font-family: edo;
+color: white;
+margin: 0;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
 }
 
 
@@ -816,6 +933,21 @@ font-size: 1.1rem;
   .textoservicio{
     font-size: 20px;
   }
+
+    .formulario-contacto .input-group {
+      width: 100%; /* Los cuadros ocupan todo el ancho en pantallas pequeñas */
+    }
+  
+    #contacto h2 {
+      font-size: 24px;
+    }
+  
+    .formulario-contacto button {
+      font-size: 16px;
+    }  
+
+
+
 }
 
 @media (max-width: 480px) { /* Para móviles pequeños */
@@ -841,132 +973,3 @@ font-size: 1.1rem;
   }
 }
 
-
-
-/* Sección de Contacto */
-#Contacto {
-  color: #2c3e50;
-  padding: 40px 20px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  box-sizing: border-box;
-
-}
-
-#Contacto h2 {
-  font-size: 30px;
-  font-family: edo;
-  font-weight: 700;
-  color:white;
-  margin-bottom: 30px;
-  letter-spacing: 1px;
-  top: 0;
-}
-
-.formulario-contacto {
-  display: flex;
-  flex-wrap: wrap; /* Permite que los cuadros se ajusten en pantallas pequeñas */
-  gap: 20px;
-  justify-content: center;
-  width: 100%;
-  max-width: 800px;
-}
-
-.formulario-contacto label {
-  display: block;
-  font-size: 16px;
-  margin-bottom: 5px;
-  font-weight: 600;
-  color:white;
-  font-family: edo;
-}
-
-.formulario-contacto input,
-.formulario-contacto textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #dfe4ea;
-  border-radius: 5px;
-  background-color: #ffffff; /* Fondo blanco */
-  color: #2c3e50;
-  font-size: 16px;
-  box-sizing: border-box;
-  transition: all 0.3s ease-in-out;
-}
-
-.formulario-contacto input:focus,
-.formulario-contacto textarea:focus {
-  border-color: #f39c12; /* Resaltar el borde al hacer foco */
-  outline: none;
-}
-
-.formulario-contacto .input-group {
-  width: calc(50% - 10px); /* Cada cuadro ocupa la mitad del ancho */
-  box-sizing: border-box;
-}
-
-.formulario-contacto .input-group.full-width {
-  width: 100%; /* El cuadro del mensaje ocupa todo el ancho */
-}
-
-.formulario-contacto button {
-  background-color: #f39c12; /* Color dorado para el botón */
-  color: white;
-  padding: 15px 30px;
-  border: none;
-  border-radius: 5px;
-  font-size: 18px;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  margin-top: 10px;
-}
-
-.formulario-contacto button:hover {
-  background-color: #e67e22; /* Cambio de color al pasar el ratón */
-}
-
-@media (max-width: 768px) {
-  .formulario-contacto .input-group {
-    width: 100%; /* Los cuadros ocupan todo el ancho en pantallas pequeñas */
-  }
-
-  #contacto h2 {
-    font-size: 24px;
-  }
-
-  .formulario-contacto button {
-    font-size: 16px;
-  }
-}
-
-
-footer {
-  background: linear-gradient(135deg, #141415, #40414a); /* Fondo degradado similar al footer */
-  color: white;
-  text-align: center;
-  position: relative;
-  top: 20px;
-  bottom: 0;
-  width: 100%;
-}
-
-.footer-title {
-  font-size: 60px;
-  font-weight: bold;
-  font-family: edo;
-color: white;
-margin: 0;
-}
-
-footer a {
-  color: #fff;
-  text-decoration: none;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
